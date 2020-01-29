@@ -1,0 +1,17 @@
+G:\Work\Third Year\Components\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll
+G:\Work\Third Year\Components\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.pdb
+G:\Work\Third Year\Components\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csprojAssemblyReference.cache
+G:\Work\Third Year\Components\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csproj.CoreCompileInputs.cache
+G:\Work\Third Year\Components\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.dll
+G:\Work\Third Year\Components\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.pdb
+G:\Work\Third Year\Components\Coursework\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csprojAssemblyReference.cache
+G:\Work\Third Year\Components\Coursework\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csproj.CoreCompileInputs.cache
+G:\Work\Third Year\Components\Coursework\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.dll
+G:\Work\Third Year\Components\Coursework\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.pdb
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csprojAssemblyReference.cache
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csproj.CoreCompileInputs.cache
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.dll
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.pdb
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll.config
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll
+G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.pdb
