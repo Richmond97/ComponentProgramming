@@ -1043,7 +1043,7 @@ namespace Component_A_ClassLibrary
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="BigInt NOT NULL")]
-		public long EmployeeID
+		public long StaffID
 		{
 			get
 			{
