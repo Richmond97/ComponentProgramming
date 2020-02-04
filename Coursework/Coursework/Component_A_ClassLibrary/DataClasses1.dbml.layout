@@ -70,6 +70,19 @@
       <nodes>
         <classShapeMoniker Id="8dc90a5c-e409-4614-9e61-bc87464d47e7" />
         <classShapeMoniker Id="7ed8f0de-e051-4eef-b661-bcfa82719968" />
+=======
+    <classShape Id="0d3ea1d3-0c61-4854-90ba-36a837255994" absoluteBounds="4.75, 5.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataClasses1DataContext/role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41fb0c4d-978a-4595-a928-e20ce022cbd4" absoluteBounds="4.765, 5.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.9375 : 5.1651025390625); (4.9375 : 5.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/employee/employee_role" />
+      <nodes>
+        <classShapeMoniker Id="8dc90a5c-e409-4614-9e61-bc87464d47e7" />
+        <classShapeMoniker Id="0d3ea1d3-0c61-4854-90ba-36a837255994" />
+>>>>>>> eman_version
       </nodes>
     </associationConnector>
   </nestedChildShapes>

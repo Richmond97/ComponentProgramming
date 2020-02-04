@@ -15,3 +15,10 @@ G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\obj\Debug\Comp
 G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll.config
 G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll
 G:\Work\Third Year\Components\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.pdb
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll.config
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.pdb
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csprojAssemblyReference.cache
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.dll
+C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.pdb

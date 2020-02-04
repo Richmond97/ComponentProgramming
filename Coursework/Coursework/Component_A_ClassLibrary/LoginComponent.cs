@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
+using System.Windows.Forms;
 
 namespace Component_A_ClassLibrary
 {
@@ -39,48 +40,48 @@ namespace Component_A_ClassLibrary
         // Verification Method for both Admin and Staff
         public bool Verification()
         {
+            long someQuery;
             try
-            {
-                
-
-
+            {   
                 Console.WriteLine(db.Connection);
 
                 // Query to find matching staffid and password in DB
                 var verQuery = from a in db.employees
-                            where a.EmployeeID == StaffID && a.Password == Password
-                            select a;
+                               where a.StaffID == StaffID && a.Password == Password
+                               select a;
                 
                 Console.WriteLine(db.GetCommand(verQuery).CommandText);
                 Console.WriteLine("Query successfully");
 
+                var quer = verQuery.ToList();
+                someQuery = quer.ElementAtOrDefault(0).EmployeeID;
 
                 if (verQuery.Any())
                 {
                     // If any query has an object call auth method
                     Console.WriteLine("User Exists in DB");
-                    return Authentication();              
+                    return Authentication(someQuery);              
                 }
                 else
                 {
-
-
                     // Else check the staffid exists
-                    var userQuery = (from a in db.employees
-                                     where a.EmployeeID == StaffID
-                                     select a);
+                    var userQuery = (from b in db.employees
+                                     where b.StaffID == StaffID
+                                     select b);
                     //Console.WriteLine(db.GetCommand(userQuery).CommandText);
 
                     if (userQuery.Any())
                     {
                         Console.WriteLine("User Exists in DB, Wrong Password");
                         //popup box
+                        MessageBox.Show("User Exists in DB, Wrong Password");
                         return false;
                     }
                     else
                     {
                         Console.WriteLine("User Does Not Exist, Please contact Admin");
                         //pop up box
+                        MessageBox.Show("User Does Not Exist, Please contact Admin");
                         return false;
                     }
                 }
@@ -89,34 +90,47 @@ namespace Component_A_ClassLibrary
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                //pop up box
+                MessageBox.Show($"{e}");
                 throw;
-            }     
-
-            
+            }               
 
         }
 
-        public bool Authentication()
+        public bool Authentication(long employID)
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
+            try
+            {
+                //DataClasses1DataContext db = new DataClasses1DataContext();
 
-            var joinQuery = from  r in db.roles
-                            where r.EmployeeID == StaffID
-                            select r;
-            Console.WriteLine(db.GetCommand(joinQuery).CommandText);
+                var joinQuery = from r in db.roles
+                                where r.employee.EmployeeID == employID
+                                select r;
+                Console.WriteLine(db.GetCommand(joinQuery).CommandText);
 
-            var singleQuery = joinQuery.Single();
+                var singleQuery = joinQuery.Single();
+
+                if (singleQuery.RoleType == "Admin")
+                {
+                    MessageBox.Show("Admin has logged in successfully");
+                    
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Unauthorised Access Denied");
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }        
+
+
             
-            if (singleQuery.RoleType == "Admin")
-            {
-                Console.WriteLine("Admin has logged in successfully");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Unauthorised Access Denied");
-                return false;
-            }
         }
 
     }
