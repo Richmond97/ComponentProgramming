@@ -13,8 +13,8 @@
       <Column Name="DateJoined" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="employee_holidaysrequested" Member="holidaysrequesteds" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="holidaysrequested" />
       <Association Name="employee_holidaystaken" Member="holidaystakens" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="holidaystaken" />
-      <Association Name="employee_role" Member="roles" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="role" />
       <Association Name="employee_department" Member="departments" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="department" />
+      <Association Name="employee_role" Member="roles" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="role" />
     </Type>
   </Table>
   <Table Name="dbo.holidaysrequested" Member="holidaysrequesteds">
@@ -43,14 +43,6 @@
       <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.role" Member="roles">
-    <Type Name="role">
-      <Column Name="RoleID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EmployeeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="RoleType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="employee_role" Member="employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="employee" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.constraints" Member="constraints">
     <Type Name="constraint">
       <Column Name="ConstraintID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -67,6 +59,14 @@
       <Column Name="DeptName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Association Name="employee_department" Member="employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.role" Member="roles">
+    <Type Name="role">
+      <Column Name="RoleID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RoleType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="employee_role" Member="employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="employee" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
