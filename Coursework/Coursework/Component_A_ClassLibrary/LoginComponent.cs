@@ -40,6 +40,7 @@ namespace Component_A_ClassLibrary
         // Verification Method for both Admin and Staff
         public bool Verification()
         {
+            long someQuery;
             try
             {   
                 Console.WriteLine(db.Connection);
@@ -52,12 +53,14 @@ namespace Component_A_ClassLibrary
                 Console.WriteLine(db.GetCommand(verQuery).CommandText);
                 Console.WriteLine("Query successfully");
 
+                var quer = verQuery.ToList();
+                someQuery = quer.ElementAtOrDefault(0).EmployeeID;
 
                 if (verQuery.Any())
                 {
                     // If any query has an object call auth method
                     Console.WriteLine("User Exists in DB");
-                    return Authentication();              
+                    return Authentication(someQuery);              
                 }
                 else
                 {
@@ -94,7 +97,7 @@ namespace Component_A_ClassLibrary
 
         }
 
-        public bool Authentication(int employID)
+        public bool Authentication(long employID)
         {
             try
             {
@@ -109,12 +112,13 @@ namespace Component_A_ClassLibrary
 
                 if (singleQuery.RoleType == "Admin")
                 {
-                    Console.WriteLine("Admin has logged in successfully");
+                    MessageBox.Show("Admin has logged in successfully");
+                    
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("Unauthorised Access Denied");
+                    MessageBox.Show("Unauthorised Access Denied");
                     return false;
                 }
 

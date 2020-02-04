@@ -42,15 +42,15 @@ namespace Component_A_ClassLibrary
     partial void Insertpeaktime(peaktime instance);
     partial void Updatepeaktime(peaktime instance);
     partial void Deletepeaktime(peaktime instance);
-    partial void Insertrole(role instance);
-    partial void Updaterole(role instance);
-    partial void Deleterole(role instance);
     partial void Insertconstraint(constraint instance);
     partial void Updateconstraint(constraint instance);
     partial void Deleteconstraint(constraint instance);
     partial void Insertdepartment(department instance);
     partial void Updatedepartment(department instance);
     partial void Deletedepartment(department instance);
+    partial void Insertrole(role instance);
+    partial void Updaterole(role instance);
+    partial void Deleterole(role instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -115,14 +115,6 @@ namespace Component_A_ClassLibrary
 			}
 		}
 		
-		public System.Data.Linq.Table<role> roles
-		{
-			get
-			{
-				return this.GetTable<role>();
-			}
-		}
-		
 		public System.Data.Linq.Table<constraint> constraints
 		{
 			get
@@ -136,6 +128,14 @@ namespace Component_A_ClassLibrary
 			get
 			{
 				return this.GetTable<department>();
+			}
+		}
+		
+		public System.Data.Linq.Table<role> roles
+		{
+			get
+			{
+				return this.GetTable<role>();
 			}
 		}
 	}
@@ -168,9 +168,9 @@ namespace Component_A_ClassLibrary
 		
 		private EntitySet<holidaystaken> _holidaystakens;
 		
-		private EntitySet<role> _roles;
-		
 		private EntitySet<department> _departments;
+		
+		private EntitySet<role> _roles;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -200,8 +200,8 @@ namespace Component_A_ClassLibrary
 		{
 			this._holidaysrequesteds = new EntitySet<holidaysrequested>(new Action<holidaysrequested>(this.attach_holidaysrequesteds), new Action<holidaysrequested>(this.detach_holidaysrequesteds));
 			this._holidaystakens = new EntitySet<holidaystaken>(new Action<holidaystaken>(this.attach_holidaystakens), new Action<holidaystaken>(this.detach_holidaystakens));
-			this._roles = new EntitySet<role>(new Action<role>(this.attach_roles), new Action<role>(this.detach_roles));
 			this._departments = new EntitySet<department>(new Action<department>(this.attach_departments), new Action<department>(this.detach_departments));
+			this._roles = new EntitySet<role>(new Action<role>(this.attach_roles), new Action<role>(this.detach_roles));
 			OnCreated();
 		}
 		
@@ -411,19 +411,6 @@ namespace Component_A_ClassLibrary
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_role", Storage="_roles", ThisKey="EmployeeID", OtherKey="EmployeeID")]
-		public EntitySet<role> roles
-		{
-			get
-			{
-				return this._roles;
-			}
-			set
-			{
-				this._roles.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_department", Storage="_departments", ThisKey="EmployeeID", OtherKey="EmployeeID")]
 		public EntitySet<department> departments
 		{
@@ -434,6 +421,19 @@ namespace Component_A_ClassLibrary
 			set
 			{
 				this._departments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_role", Storage="_roles", ThisKey="EmployeeID", OtherKey="EmployeeID")]
+		public EntitySet<role> roles
+		{
+			get
+			{
+				return this._roles;
+			}
+			set
+			{
+				this._roles.Assign(value);
 			}
 		}
 		
@@ -481,18 +481,6 @@ namespace Component_A_ClassLibrary
 			entity.employee = null;
 		}
 		
-		private void attach_roles(role entity)
-		{
-			this.SendPropertyChanging();
-			entity.employee = this;
-		}
-		
-		private void detach_roles(role entity)
-		{
-			this.SendPropertyChanging();
-			entity.employee = null;
-		}
-		
 		private void attach_departments(department entity)
 		{
 			this.SendPropertyChanging();
@@ -500,6 +488,18 @@ namespace Component_A_ClassLibrary
 		}
 		
 		private void detach_departments(department entity)
+		{
+			this.SendPropertyChanging();
+			entity.employee = null;
+		}
+		
+		private void attach_roles(role entity)
+		{
+			this.SendPropertyChanging();
+			entity.employee = this;
+		}
+		
+		private void detach_roles(role entity)
 		{
 			this.SendPropertyChanging();
 			entity.employee = null;
@@ -990,157 +990,6 @@ namespace Component_A_ClassLibrary
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.role")]
-	public partial class role : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _RoleID;
-		
-		private long _EmployeeID;
-		
-		private string _RoleType;
-		
-		private EntityRef<employee> _employee;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRoleIDChanging(long value);
-    partial void OnRoleIDChanged();
-    partial void OnEmployeeIDChanging(long value);
-    partial void OnEmployeeIDChanged();
-    partial void OnRoleTypeChanging(string value);
-    partial void OnRoleTypeChanged();
-    #endregion
-		
-		public role()
-		{
-			this._employee = default(EntityRef<employee>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long RoleID
-		{
-			get
-			{
-				return this._RoleID;
-			}
-			set
-			{
-				if ((this._RoleID != value))
-				{
-					this.OnRoleIDChanging(value);
-					this.SendPropertyChanging();
-					this._RoleID = value;
-					this.SendPropertyChanged("RoleID");
-					this.OnRoleIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="BigInt NOT NULL")]
-		public long StaffID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					if (this._employee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string RoleType
-		{
-			get
-			{
-				return this._RoleType;
-			}
-			set
-			{
-				if ((this._RoleType != value))
-				{
-					this.OnRoleTypeChanging(value);
-					this.SendPropertyChanging();
-					this._RoleType = value;
-					this.SendPropertyChanged("RoleType");
-					this.OnRoleTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_role", Storage="_employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public employee employee
-		{
-			get
-			{
-				return this._employee.Entity;
-			}
-			set
-			{
-				employee previousValue = this._employee.Entity;
-				if (((previousValue != value) 
-							|| (this._employee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._employee.Entity = null;
-						previousValue.roles.Remove(this);
-					}
-					this._employee.Entity = value;
-					if ((value != null))
-					{
-						value.roles.Add(this);
-						this._EmployeeID = value.EmployeeID;
-					}
-					else
-					{
-						this._EmployeeID = default(long);
-					}
-					this.SendPropertyChanged("employee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.constraints")]
 	public partial class constraint : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1442,6 +1291,157 @@ namespace Component_A_ClassLibrary
 					if ((value != null))
 					{
 						value.departments.Add(this);
+						this._EmployeeID = value.EmployeeID;
+					}
+					else
+					{
+						this._EmployeeID = default(long);
+					}
+					this.SendPropertyChanged("employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.role")]
+	public partial class role : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _RoleID;
+		
+		private long _EmployeeID;
+		
+		private string _RoleType;
+		
+		private EntityRef<employee> _employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRoleIDChanging(long value);
+    partial void OnRoleIDChanged();
+    partial void OnEmployeeIDChanging(long value);
+    partial void OnEmployeeIDChanged();
+    partial void OnRoleTypeChanging(string value);
+    partial void OnRoleTypeChanged();
+    #endregion
+		
+		public role()
+		{
+			this._employee = default(EntityRef<employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long RoleID
+		{
+			get
+			{
+				return this._RoleID;
+			}
+			set
+			{
+				if ((this._RoleID != value))
+				{
+					this.OnRoleIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoleID = value;
+					this.SendPropertyChanged("RoleID");
+					this.OnRoleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="BigInt NOT NULL")]
+		public long EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					if (this._employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string RoleType
+		{
+			get
+			{
+				return this._RoleType;
+			}
+			set
+			{
+				if ((this._RoleType != value))
+				{
+					this.OnRoleTypeChanging(value);
+					this.SendPropertyChanging();
+					this._RoleType = value;
+					this.SendPropertyChanged("RoleType");
+					this.OnRoleTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_role", Storage="_employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
+		public employee employee
+		{
+			get
+			{
+				return this._employee.Entity;
+			}
+			set
+			{
+				employee previousValue = this._employee.Entity;
+				if (((previousValue != value) 
+							|| (this._employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._employee.Entity = null;
+						previousValue.roles.Remove(this);
+					}
+					this._employee.Entity = value;
+					if ((value != null))
+					{
+						value.roles.Add(this);
 						this._EmployeeID = value.EmployeeID;
 					}
 					else
