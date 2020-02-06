@@ -69,7 +69,7 @@
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs" />
+    <Compile Include="Staff.cs" />
     <Compile Include="LoginComponent.cs">
       <SubType>Component</SubType>
     </Compile>

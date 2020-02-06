@@ -24,7 +24,10 @@ namespace LoginForm
 
             if (loginComponent1.Verification())
             {
-                //Go to manage form panel
+                this.Hide();
+                ManageForm manage = new ManageForm();
+                manage.Show();
+
             }        
         }
     }

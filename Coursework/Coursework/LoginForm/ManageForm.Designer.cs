@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.createPanel = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -89,6 +90,7 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
+            this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,9 +115,9 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(42, 23);
+            this.createPanel.Location = new System.Drawing.Point(42, 71);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(176, 103);
+            this.createPanel.Size = new System.Drawing.Size(735, 397);
             this.createPanel.TabIndex = 0;
             // 
             // button4
@@ -126,6 +128,7 @@
             this.button4.TabIndex = 39;
             this.button4.Text = "CREATE";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // label7
             // 
@@ -257,29 +260,29 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(109, 417);
+            this.btnCreate.Location = new System.Drawing.Point(0, 0);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(109, 37);
+            this.btnCreate.Size = new System.Drawing.Size(284, 37);
             this.btnCreate.TabIndex = 1;
-            this.btnCreate.Text = "CREATE";
+            this.btnCreate.Text = "ADD EMPLOYEE";
             this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(363, 417);
+            this.btnEdit.Location = new System.Drawing.Point(283, 0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(109, 37);
+            this.btnEdit.Size = new System.Drawing.Size(284, 37);
             this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "EDIT";
+            this.btnEdit.Text = "EDIT EMPLOYEE";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(617, 417);
+            this.btnDelete.Location = new System.Drawing.Point(567, 0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(109, 37);
+            this.btnDelete.Size = new System.Drawing.Size(284, 37);
             this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "DELETE";
+            this.btnDelete.Text = "DELETE EMPLOYEE";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // editPanel
@@ -303,7 +306,7 @@
             this.editPanel.Controls.Add(this.textBox6);
             this.editPanel.Controls.Add(this.textBox7);
             this.editPanel.Controls.Add(this.textBox8);
-            this.editPanel.Location = new System.Drawing.Point(309, 23);
+            this.editPanel.Location = new System.Drawing.Point(309, 71);
             this.editPanel.Name = "editPanel";
             this.editPanel.Size = new System.Drawing.Size(224, 103);
             this.editPanel.TabIndex = 4;
@@ -482,7 +485,7 @@
             this.panel1.Controls.Add(this.textBox15);
             this.panel1.Controls.Add(this.textBox16);
             this.panel1.Controls.Add(this.textBox17);
-            this.panel1.Location = new System.Drawing.Point(602, 30);
+            this.panel1.Location = new System.Drawing.Point(602, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(175, 111);
             this.panel1.TabIndex = 38;
@@ -640,10 +643,17 @@
             this.textBox17.Size = new System.Drawing.Size(150, 20);
             this.textBox17.TabIndex = 20;
             // 
+            // createEmployee1
+            // 
+            this.createEmployee1.FName = null;
+            this.createEmployee1.LName = null;
+            this.createEmployee1.TeleNumber = 0;
+            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(852, 480);
             this.Controls.Add(this.createPanel);
             this.Controls.Add(this.panel1);
@@ -726,5 +736,6 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
+        private Component_A_ClassLibrary.CreateEmployee createEmployee1;
     }
 }

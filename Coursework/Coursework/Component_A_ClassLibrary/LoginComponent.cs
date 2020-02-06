@@ -48,13 +48,13 @@ namespace Component_A_ClassLibrary
                 // Query to find matching staffid and password in DB
                 var verQuery = from a in db.employees
                                where a.StaffID == StaffID && a.Password == Password
-                               select a;
-                
-                Console.WriteLine(db.GetCommand(verQuery).CommandText);
-                Console.WriteLine("Query successfully");
+                               select a.EmployeeID;
+                              
 
                 var quer = verQuery.ToList();
-                someQuery = quer.ElementAtOrDefault(0).EmployeeID;
+                someQuery = quer.ElementAtOrDefault(0);
+
+                Console.WriteLine("Query successfully");
 
                 if (verQuery.Any())
                 {

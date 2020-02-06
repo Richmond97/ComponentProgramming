@@ -16,5 +16,10 @@ namespace LoginForm
         {
             InitializeComponent();
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode);            
+        }
     }
 }
