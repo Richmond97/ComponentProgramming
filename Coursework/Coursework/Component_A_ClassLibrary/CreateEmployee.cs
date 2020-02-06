@@ -32,11 +32,10 @@ namespace Component_A_ClassLibrary
         public string LName { get => lName; set => lName = value; }
         public long TeleNumber { get => teleNumber; set => teleNumber = value; }
         
-        enum roletype {Head, DeputyHead, Manager, Apprentice, JuniorMember, SeniorMember }
-        enum departType {Engineering, Plumbing, Roofing, Carpentry, Bricklaying, Office }
+        //enum roletype {Head, DeputyHead, Manager, Apprentice, JuniorMember, SeniorMember }
+        //enum departType {Engineering, Plumbing, Roofing, Carpentry, Bricklaying, Office }
 
-
-
+        
       public void AddToDB(TextBox firstNa, TextBox lastNa, TextBox telnumber,TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode)
         {
             try
@@ -45,13 +44,9 @@ namespace Component_A_ClassLibrary
                 //based on employee.id
                 // Query to find matching staffid and password in DB
                 var verQuery = from a in db.employees
-                               where a.FirstName == FName  && a.LastName == LName
+                               where a.FirstName == firstNa.Text  && a.LastName == lastNa.Text
                                select a;
-
-
-                //var quer = verQuery.ToList();
-                //someQuery = quer.ElementAtOrDefault(0);
-
+                
                 Console.WriteLine("Query successfully");
 
                 if (verQuery.Any())
@@ -74,12 +69,16 @@ namespace Component_A_ClassLibrary
                     addedEmployee.Password = firstNa.Text;
                     addedEmployee.Telephone = telnumber.Text;
                     addedEmployee.EmailAddress = email.Text;
+
+
                     //addedEmployee.departments = dept;
                     //addedEmployee.roles = roleT;
+
+
                     addedEmployee.Address = (street.Text + " " + city.Text + " " + county.Text + " " + postcode.Text);
                     addedEmployee.DateJoined = DateTime.Today.Date;
                     addedEmployee.StaffID = IDcreation();
-                    Console.WriteLine(" today date is " + DateTime.Today);
+                    Console.WriteLine(" today date is " + DateTime.Today.Date);
 
                     //Add new Employee to database
                     db.employees.InsertOnSubmit(addedEmployee);
@@ -94,7 +93,7 @@ namespace Component_A_ClassLibrary
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
                 MessageBox.Show($"{e}");
                 throw;
             }  
@@ -106,10 +105,13 @@ namespace Component_A_ClassLibrary
             Random random = new Random();
             verifiedID = random.Next(100000, 999999);
 
-            if (true)
+            var verQuery = from a in db.employees
+                               where a.StaffID == verifiedID
+                               select a;
+
+            if (verQuery.Any())
             {
-
-
+                IDcreation();
             }
 
             return verifiedID;

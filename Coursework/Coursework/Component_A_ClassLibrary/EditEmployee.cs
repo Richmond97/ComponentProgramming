@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace Component_A_ClassLibrary
 {
     public partial class EditEmployee : Component
     {
+        DataClasses1DataContext db = new DataClasses1DataContext();
+
         public EditEmployee()
         {
             InitializeComponent();
@@ -22,17 +25,24 @@ namespace Component_A_ClassLibrary
             InitializeComponent();
         }
 
-        public void editemployee()
+        public void searchEmployee(DataGridView table, TextBox searchQ)
         {
-            //look up employee on database with matching ID to query
-            //based on employee.id
-
-            if (true)
+            try
             {
-                //if successful
-            }
+                var varQueryID = (from a in db.employees
+                             where String.IsNullOrWhiteSpace(searchQ.Text)
+                             || a.FirstName.Contains(searchQ.Text.Trim())
+                             select a).ToList();
+                table.DataSource = varQueryID;
 
-            //return deleted;
-        }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
+                throw;
+            }
+            
+
+        }    
     }
 }

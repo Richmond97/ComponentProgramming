@@ -63,13 +63,14 @@
     <Compile Include="DeleteEmployee.Designer.cs">
       <DependentUpon>DeleteEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepartmentType.cs" />
     <Compile Include="EditEmployee.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Staff.cs" />
+    <Compile Include="RoleType.cs" />
     <Compile Include="LoginComponent.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.createPanel = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cbxRole = new System.Windows.Forms.ComboBox();
+            this.cbxDept = new System.Windows.Forms.ComboBox();
+            this.btnCreateEmploy = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCounty = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -40,7 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtNumber = new System.Windows.Forms.TextBox();
@@ -70,7 +74,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.deletePanel = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -91,14 +95,19 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.deletePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // createPanel
             // 
-            this.createPanel.Controls.Add(this.button4);
+            this.createPanel.Controls.Add(this.cbxRole);
+            this.createPanel.Controls.Add(this.cbxDept);
+            this.createPanel.Controls.Add(this.btnCreateEmploy);
             this.createPanel.Controls.Add(this.label7);
             this.createPanel.Controls.Add(this.txtCounty);
             this.createPanel.Controls.Add(this.label6);
@@ -108,32 +117,50 @@
             this.createPanel.Controls.Add(this.label5);
             this.createPanel.Controls.Add(this.label4);
             this.createPanel.Controls.Add(this.label3);
+            this.createPanel.Controls.Add(this.label26);
             this.createPanel.Controls.Add(this.label2);
+            this.createPanel.Controls.Add(this.label25);
             this.createPanel.Controls.Add(this.label1);
             this.createPanel.Controls.Add(this.txtEmail);
             this.createPanel.Controls.Add(this.txtNumber);
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(42, 71);
+            this.createPanel.Location = new System.Drawing.Point(23, 71);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(735, 397);
+            this.createPanel.Size = new System.Drawing.Size(199, 83);
             this.createPanel.TabIndex = 0;
             // 
-            // button4
+            // cbxRole
             // 
-            this.button4.Location = new System.Drawing.Point(95, 291);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 37);
-            this.button4.TabIndex = 39;
-            this.button4.Text = "CREATE";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            this.cbxRole.FormattingEnabled = true;
+            this.cbxRole.Location = new System.Drawing.Point(567, 133);
+            this.cbxRole.Name = "cbxRole";
+            this.cbxRole.Size = new System.Drawing.Size(121, 21);
+            this.cbxRole.TabIndex = 40;
+            // 
+            // cbxDept
+            // 
+            this.cbxDept.FormattingEnabled = true;
+            this.cbxDept.Location = new System.Drawing.Point(567, 84);
+            this.cbxDept.Name = "cbxDept";
+            this.cbxDept.Size = new System.Drawing.Size(121, 21);
+            this.cbxDept.TabIndex = 40;
+            // 
+            // btnCreateEmploy
+            // 
+            this.btnCreateEmploy.Location = new System.Drawing.Point(371, 360);
+            this.btnCreateEmploy.Name = "btnCreateEmploy";
+            this.btnCreateEmploy.Size = new System.Drawing.Size(109, 37);
+            this.btnCreateEmploy.TabIndex = 39;
+            this.btnCreateEmploy.Text = "CREATE";
+            this.btnCreateEmploy.UseVisualStyleBackColor = true;
+            this.btnCreateEmploy.Click += new System.EventHandler(this.BtnCreateEmploy_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(404, 164);
+            this.label7.Location = new System.Drawing.Point(355, 176);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 19;
@@ -141,7 +168,7 @@
             // 
             // txtCounty
             // 
-            this.txtCounty.Location = new System.Drawing.Point(404, 190);
+            this.txtCounty.Location = new System.Drawing.Point(355, 202);
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(150, 20);
             this.txtCounty.TabIndex = 18;
@@ -149,7 +176,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(404, 46);
+            this.label6.Location = new System.Drawing.Point(355, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 17;
@@ -157,7 +184,7 @@
             // 
             // txtStreet
             // 
-            this.txtStreet.Location = new System.Drawing.Point(404, 72);
+            this.txtStreet.Location = new System.Drawing.Point(355, 84);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(150, 20);
             this.txtStreet.TabIndex = 16;
@@ -165,7 +192,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(404, 105);
+            this.label8.Location = new System.Drawing.Point(355, 117);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 15;
@@ -173,7 +200,7 @@
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(404, 131);
+            this.txtCity.Location = new System.Drawing.Point(355, 143);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(150, 20);
             this.txtCity.TabIndex = 14;
@@ -181,7 +208,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(404, 223);
+            this.label5.Location = new System.Drawing.Point(355, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 9;
@@ -190,7 +217,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(92, 193);
+            this.label4.Location = new System.Drawing.Point(121, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 8;
@@ -199,25 +226,43 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(92, 144);
+            this.label3.Location = new System.Drawing.Point(121, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Telephone number";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(567, 111);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(29, 13);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "Role";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 95);
+            this.label2.Location = new System.Drawing.Point(121, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Last name";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(567, 62);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(62, 13);
+            this.label25.TabIndex = 5;
+            this.label25.Text = "Department";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 46);
+            this.label1.Location = new System.Drawing.Point(121, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 5;
@@ -225,35 +270,35 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(92, 214);
+            this.txtEmail.Location = new System.Drawing.Point(121, 231);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(150, 20);
             this.txtEmail.TabIndex = 4;
             // 
             // txtNumber
             // 
-            this.txtNumber.Location = new System.Drawing.Point(92, 165);
+            this.txtNumber.Location = new System.Drawing.Point(121, 182);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(150, 20);
             this.txtNumber.TabIndex = 3;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(92, 116);
+            this.txtSurname.Location = new System.Drawing.Point(121, 133);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(150, 20);
             this.txtSurname.TabIndex = 2;
             // 
             // txtPostcode
             // 
-            this.txtPostcode.Location = new System.Drawing.Point(404, 249);
+            this.txtPostcode.Location = new System.Drawing.Point(355, 261);
             this.txtPostcode.Name = "txtPostcode";
             this.txtPostcode.Size = new System.Drawing.Size(150, 20);
             this.txtPostcode.TabIndex = 1;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(92, 67);
+            this.txtName.Location = new System.Drawing.Point(121, 84);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(150, 20);
             this.txtName.TabIndex = 0;
@@ -266,15 +311,18 @@
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "ADD EMPLOYEE";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnEdit.Location = new System.Drawing.Point(283, 0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(284, 37);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "EDIT EMPLOYEE";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnDelete
             // 
@@ -284,9 +332,11 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "DELETE EMPLOYEE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // editPanel
             // 
+            this.editPanel.Controls.Add(this.dataGridView1);
             this.editPanel.Controls.Add(this.button3);
             this.editPanel.Controls.Add(this.txtSearch);
             this.editPanel.Controls.Add(this.btnSearch);
@@ -306,9 +356,9 @@
             this.editPanel.Controls.Add(this.textBox6);
             this.editPanel.Controls.Add(this.textBox7);
             this.editPanel.Controls.Add(this.textBox8);
-            this.editPanel.Location = new System.Drawing.Point(309, 71);
+            this.editPanel.Location = new System.Drawing.Point(0, 0);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(224, 103);
+            this.editPanel.Size = new System.Drawing.Size(851, 479);
             this.editPanel.TabIndex = 4;
             // 
             // button3
@@ -335,6 +385,7 @@
             this.btnSearch.TabIndex = 36;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // label9
             // 
@@ -464,31 +515,31 @@
             this.textBox8.Size = new System.Drawing.Size(150, 20);
             this.textBox8.TabIndex = 20;
             // 
-            // panel1
+            // deletePanel
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.textBox11);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.textBox12);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.textBox13);
-            this.panel1.Controls.Add(this.textBox14);
-            this.panel1.Controls.Add(this.textBox15);
-            this.panel1.Controls.Add(this.textBox16);
-            this.panel1.Controls.Add(this.textBox17);
-            this.panel1.Location = new System.Drawing.Point(602, 63);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(175, 111);
-            this.panel1.TabIndex = 38;
+            this.deletePanel.Controls.Add(this.button2);
+            this.deletePanel.Controls.Add(this.textBox9);
+            this.deletePanel.Controls.Add(this.button1);
+            this.deletePanel.Controls.Add(this.label17);
+            this.deletePanel.Controls.Add(this.textBox10);
+            this.deletePanel.Controls.Add(this.label18);
+            this.deletePanel.Controls.Add(this.textBox11);
+            this.deletePanel.Controls.Add(this.label19);
+            this.deletePanel.Controls.Add(this.textBox12);
+            this.deletePanel.Controls.Add(this.label20);
+            this.deletePanel.Controls.Add(this.label21);
+            this.deletePanel.Controls.Add(this.label22);
+            this.deletePanel.Controls.Add(this.label23);
+            this.deletePanel.Controls.Add(this.label24);
+            this.deletePanel.Controls.Add(this.textBox13);
+            this.deletePanel.Controls.Add(this.textBox14);
+            this.deletePanel.Controls.Add(this.textBox15);
+            this.deletePanel.Controls.Add(this.textBox16);
+            this.deletePanel.Controls.Add(this.textBox17);
+            this.deletePanel.Location = new System.Drawing.Point(602, 63);
+            this.deletePanel.Name = "deletePanel";
+            this.deletePanel.Size = new System.Drawing.Size(175, 111);
+            this.deletePanel.TabIndex = 38;
             // 
             // button2
             // 
@@ -647,7 +698,16 @@
             // 
             this.createEmployee1.FName = null;
             this.createEmployee1.LName = null;
-            this.createEmployee1.TeleNumber = 0;
+            this.createEmployee1.TeleNumber = ((long)(0));
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(624, 192);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(204, 239);
+            this.dataGridView1.TabIndex = 40;
             // 
             // ManageForm
             // 
@@ -656,7 +716,7 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(852, 480);
             this.Controls.Add(this.createPanel);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.deletePanel);
             this.Controls.Add(this.editPanel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -667,8 +727,9 @@
             this.createPanel.PerformLayout();
             this.editPanel.ResumeLayout(false);
             this.editPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.deletePanel.ResumeLayout(false);
+            this.deletePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,7 +756,7 @@
         private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtPostcode;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCreateEmploy;
         private System.Windows.Forms.Panel editPanel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtSearch;
@@ -716,7 +777,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel deletePanel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button1;
@@ -737,5 +798,11 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox17;
         private Component_A_ClassLibrary.CreateEmployee createEmployee1;
+        private System.Windows.Forms.ComboBox cbxRole;
+        private System.Windows.Forms.ComboBox cbxDept;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Component_A_ClassLibrary.EditEmployee editEmployee1;
     }
 }
