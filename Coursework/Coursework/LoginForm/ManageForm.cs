@@ -23,20 +23,19 @@ namespace LoginForm
         {
             createPanel.Location = new Point(0, 37);
             editPanel.Location = new Point(0, 37);
-            deletePanel.Location = new Point(0, 37);
 
             createPanel.Size = new Size(851, 443);
             editPanel.Size = new Size(851, 443);
-            deletePanel.Size = new Size(851, 443);
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
             createPanel.Visible = true;
             btnCreate.BackColor = Color.DarkGray;
+            btnEdit.BackColor = Color.Transparent;
+            btnDelete.BackColor = Color.Transparent;
 
             editPanel.Visible = false;
-            deletePanel.Visible = false;
         }
 
         private void BtnCreate_Click()
@@ -47,7 +46,6 @@ namespace LoginForm
             btnDelete.BackColor = Color.Transparent;
 
             editPanel.Visible = false;
-            deletePanel.Visible = false;
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -58,19 +56,21 @@ namespace LoginForm
             btnDelete.BackColor = Color.Transparent;
 
             createPanel.Visible = false;
-            deletePanel.Visible = false;
+            btnEditEmploy.Show();
+            btnDeleteEmploy.Hide();
 
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            deletePanel.Visible = true;
+            editPanel.Visible = true;
             btnCreate.BackColor = Color.Transparent;
             btnEdit.BackColor = Color.Transparent;
             btnDelete.BackColor = Color.DarkGray;
 
             createPanel.Visible = false;
-            editPanel.Visible = false;
+            btnEditEmploy.Hide();
+            btnDeleteEmploy.Show();
 
         }
 
@@ -82,6 +82,13 @@ namespace LoginForm
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
+            editEmployee1.searchEmployee(dataGridView1, txtSearch);
+        }
+
+        private void BtnDeleteEmploy_Click(object sender, EventArgs e)
+        {
+            deleteEmployee1.DeleteStaff(dataGridView1);
+
             editEmployee1.searchEmployee(dataGridView1, txtSearch);
         }
     }

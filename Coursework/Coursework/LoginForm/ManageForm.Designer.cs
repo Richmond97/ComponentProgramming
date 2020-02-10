@@ -55,7 +55,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.editPanel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEditEmploy = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,32 +75,12 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.deletePanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.btnDeleteEmploy = new System.Windows.Forms.Button();
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
+            this.deleteEmployee1 = new Component_A_ClassLibrary.DeleteEmployee(this.components);
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
-            this.deletePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +109,7 @@
             this.createPanel.Controls.Add(this.txtName);
             this.createPanel.Location = new System.Drawing.Point(23, 71);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(199, 83);
+            this.createPanel.Size = new System.Drawing.Size(150, 138);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
@@ -336,8 +317,9 @@
             // 
             // editPanel
             // 
+            this.editPanel.Controls.Add(this.btnDeleteEmploy);
             this.editPanel.Controls.Add(this.dataGridView1);
-            this.editPanel.Controls.Add(this.button3);
+            this.editPanel.Controls.Add(this.btnEditEmploy);
             this.editPanel.Controls.Add(this.txtSearch);
             this.editPanel.Controls.Add(this.btnSearch);
             this.editPanel.Controls.Add(this.label9);
@@ -356,19 +338,28 @@
             this.editPanel.Controls.Add(this.textBox6);
             this.editPanel.Controls.Add(this.textBox7);
             this.editPanel.Controls.Add(this.textBox8);
-            this.editPanel.Location = new System.Drawing.Point(0, 0);
+            this.editPanel.Location = new System.Drawing.Point(62, 71);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(851, 479);
+            this.editPanel.Size = new System.Drawing.Size(744, 417);
             this.editPanel.TabIndex = 4;
             // 
-            // button3
+            // dataGridView1
             // 
-            this.button3.Location = new System.Drawing.Point(140, 344);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 37);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "EDIT";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(624, 192);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(204, 239);
+            this.dataGridView1.TabIndex = 40;
+            // 
+            // btnEditEmploy
+            // 
+            this.btnEditEmploy.Location = new System.Drawing.Point(140, 344);
+            this.btnEditEmploy.Name = "btnEditEmploy";
+            this.btnEditEmploy.Size = new System.Drawing.Size(109, 37);
+            this.btnEditEmploy.TabIndex = 39;
+            this.btnEditEmploy.Text = "EDIT";
+            this.btnEditEmploy.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
@@ -515,199 +506,21 @@
             this.textBox8.Size = new System.Drawing.Size(150, 20);
             this.textBox8.TabIndex = 20;
             // 
-            // deletePanel
+            // btnDeleteEmploy
             // 
-            this.deletePanel.Controls.Add(this.button2);
-            this.deletePanel.Controls.Add(this.textBox9);
-            this.deletePanel.Controls.Add(this.button1);
-            this.deletePanel.Controls.Add(this.label17);
-            this.deletePanel.Controls.Add(this.textBox10);
-            this.deletePanel.Controls.Add(this.label18);
-            this.deletePanel.Controls.Add(this.textBox11);
-            this.deletePanel.Controls.Add(this.label19);
-            this.deletePanel.Controls.Add(this.textBox12);
-            this.deletePanel.Controls.Add(this.label20);
-            this.deletePanel.Controls.Add(this.label21);
-            this.deletePanel.Controls.Add(this.label22);
-            this.deletePanel.Controls.Add(this.label23);
-            this.deletePanel.Controls.Add(this.label24);
-            this.deletePanel.Controls.Add(this.textBox13);
-            this.deletePanel.Controls.Add(this.textBox14);
-            this.deletePanel.Controls.Add(this.textBox15);
-            this.deletePanel.Controls.Add(this.textBox16);
-            this.deletePanel.Controls.Add(this.textBox17);
-            this.deletePanel.Location = new System.Drawing.Point(602, 63);
-            this.deletePanel.Name = "deletePanel";
-            this.deletePanel.Size = new System.Drawing.Size(175, 111);
-            this.deletePanel.TabIndex = 38;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(140, 319);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 37);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(140, 49);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(143, 20);
-            this.textBox9.TabIndex = 37;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(287, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "SEARCH";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(452, 243);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(40, 13);
-            this.label17.TabIndex = 35;
-            this.label17.Text = "County";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(452, 269);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(150, 20);
-            this.textBox10.TabIndex = 34;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(452, 125);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 13);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Street address ";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(452, 151);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(150, 20);
-            this.textBox11.TabIndex = 32;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(452, 184);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(56, 13);
-            this.label19.TabIndex = 31;
-            this.label19.Text = "City/Town";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(452, 210);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(150, 20);
-            this.textBox12.TabIndex = 30;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(452, 302);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(52, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "Postcode";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(140, 272);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(73, 13);
-            this.label21.TabIndex = 28;
-            this.label21.Text = "Email Address";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(140, 223);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(96, 13);
-            this.label22.TabIndex = 27;
-            this.label22.Text = "Telephone number";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(140, 174);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 13);
-            this.label23.TabIndex = 26;
-            this.label23.Text = "Last name";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(140, 125);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(58, 13);
-            this.label24.TabIndex = 25;
-            this.label24.Text = "First name ";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(140, 293);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(150, 20);
-            this.textBox13.TabIndex = 24;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(140, 244);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(150, 20);
-            this.textBox14.TabIndex = 23;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(140, 195);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(150, 20);
-            this.textBox15.TabIndex = 22;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(452, 328);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(150, 20);
-            this.textBox16.TabIndex = 21;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(140, 146);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(150, 20);
-            this.textBox17.TabIndex = 20;
+            this.btnDeleteEmploy.Location = new System.Drawing.Point(282, 344);
+            this.btnDeleteEmploy.Name = "btnDeleteEmploy";
+            this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
+            this.btnDeleteEmploy.TabIndex = 39;
+            this.btnDeleteEmploy.Text = "DELETE";
+            this.btnDeleteEmploy.UseVisualStyleBackColor = true;
+            this.btnDeleteEmploy.Click += new System.EventHandler(this.BtnDeleteEmploy_Click);
             // 
             // createEmployee1
             // 
             this.createEmployee1.FName = null;
             this.createEmployee1.LName = null;
             this.createEmployee1.TeleNumber = ((long)(0));
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(624, 192);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(204, 239);
-            this.dataGridView1.TabIndex = 40;
             // 
             // ManageForm
             // 
@@ -716,7 +529,6 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(852, 480);
             this.Controls.Add(this.createPanel);
-            this.Controls.Add(this.deletePanel);
             this.Controls.Add(this.editPanel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -727,8 +539,6 @@
             this.createPanel.PerformLayout();
             this.editPanel.ResumeLayout(false);
             this.editPanel.PerformLayout();
-            this.deletePanel.ResumeLayout(false);
-            this.deletePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -758,7 +568,7 @@
         private System.Windows.Forms.TextBox txtPostcode;
         private System.Windows.Forms.Button btnCreateEmploy;
         private System.Windows.Forms.Panel editPanel;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEditEmploy;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label9;
@@ -777,26 +587,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Panel deletePanel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Button btnDeleteEmploy;
         private Component_A_ClassLibrary.CreateEmployee createEmployee1;
         private System.Windows.Forms.ComboBox cbxRole;
         private System.Windows.Forms.ComboBox cbxDept;
@@ -804,5 +595,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Component_A_ClassLibrary.EditEmployee editEmployee1;
+        private Component_A_ClassLibrary.DeleteEmployee deleteEmployee1;
     }
 }
