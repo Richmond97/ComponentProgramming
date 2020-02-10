@@ -42,7 +42,7 @@
             // 
             // LoginPanel
             // 
-            this.LoginPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.LoginPanel.BackColor = System.Drawing.Color.Plum;
             this.LoginPanel.Controls.Add(this.label2);
             this.LoginPanel.Controls.Add(this.label1);
             this.LoginPanel.Controls.Add(this.Title);
@@ -98,6 +98,7 @@
             // 
             this.password.Location = new System.Drawing.Point(212, 255);
             this.password.Name = "password";
+            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(159, 20);
             this.password.TabIndex = 1;
             // 

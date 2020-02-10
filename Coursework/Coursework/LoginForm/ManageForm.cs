@@ -36,8 +36,8 @@ namespace LoginForm
         {
             createPanel.Visible = true;
             btnCreate.BackColor = Color.DarkGray;
-            btnEdit.BackColor = Color.Transparent;
-            btnDelete.BackColor = Color.Transparent;
+            btnEdit.BackColor = Color.White;
+            btnDelete.BackColor = Color.White;
 
             editPanel.Visible = false;
         }
@@ -46,8 +46,8 @@ namespace LoginForm
         {
             createPanel.Visible = true;
             btnCreate.BackColor = Color.DarkGray;
-            btnEdit.BackColor = Color.Transparent;
-            btnDelete.BackColor = Color.Transparent;
+            btnEdit.BackColor = Color.White;
+            btnDelete.BackColor = Color.White;
 
             editPanel.Visible = false;
         }
@@ -55,9 +55,9 @@ namespace LoginForm
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             editPanel.Visible = true;
-            btnCreate.BackColor = Color.Transparent;
+            btnCreate.BackColor = Color.White;
             btnEdit.BackColor = Color.DarkGray;
-            btnDelete.BackColor = Color.Transparent;
+            btnDelete.BackColor = Color.White;
 
             createPanel.Visible = false;
             btnEditEmploy.Show();
@@ -68,8 +68,8 @@ namespace LoginForm
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             editPanel.Visible = true;
-            btnCreate.BackColor = Color.Transparent;
-            btnEdit.BackColor = Color.Transparent;
+            btnCreate.BackColor = Color.White;
+            btnEdit.BackColor = Color.White;
             btnDelete.BackColor = Color.DarkGray;
 
             createPanel.Visible = false;
@@ -108,6 +108,25 @@ namespace LoginForm
         private void BtnEditEmploy_Click(object sender, EventArgs e)
         {
             editEmployee1.editEmployee(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+
+           // DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question;
+
+            if ((MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+            {
+                this.Dispose();
+                LoginForm login = new LoginForm();
+                login.Show();
+
+            }
+
+            //DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons., MessageBoxIcon.Question);
+            
+
+
         }
     }
 }

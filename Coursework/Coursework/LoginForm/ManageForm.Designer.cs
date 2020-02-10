@@ -79,6 +79,7 @@
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.deleteEmployee1 = new Component_A_ClassLibrary.DeleteEmployee(this.components);
+            this.btnLogout = new System.Windows.Forms.Button();
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -107,9 +108,9 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(48, 117);
+            this.createPanel.Location = new System.Drawing.Point(9, 43);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(275, 269);
+            this.createPanel.Size = new System.Drawing.Size(798, 428);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
@@ -141,9 +142,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(355, 176);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.Size = new System.Drawing.Size(49, 16);
             this.label7.TabIndex = 19;
             this.label7.Text = "County";
             // 
@@ -157,9 +160,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(355, 58);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(99, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Street address ";
             // 
@@ -173,9 +178,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(355, 117);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.Size = new System.Drawing.Size(67, 16);
             this.label8.TabIndex = 15;
             this.label8.Text = "City/Town";
             // 
@@ -189,63 +196,77 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(355, 235);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.Size = new System.Drawing.Size(66, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Postcode";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(121, 210);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.Size = new System.Drawing.Size(96, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Email Address";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(121, 161);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.Size = new System.Drawing.Size(122, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Telephone number";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Transparent;
             this.label26.Location = new System.Drawing.Point(567, 111);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(29, 13);
+            this.label26.Size = new System.Drawing.Size(37, 16);
             this.label26.TabIndex = 6;
             this.label26.Text = "Role";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(121, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Last name";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Transparent;
             this.label25.Location = new System.Drawing.Point(567, 62);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(62, 13);
+            this.label25.Size = new System.Drawing.Size(78, 16);
             this.label25.TabIndex = 5;
             this.label25.Text = "Department";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(121, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "First name ";
             // 
@@ -287,20 +308,27 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(0, 0);
+            this.btnCreate.BackColor = System.Drawing.Color.White;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnCreate.Location = new System.Drawing.Point(-2, 0);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(284, 37);
+            this.btnCreate.Size = new System.Drawing.Size(217, 37);
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "ADD EMPLOYEE";
-            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnEdit.Location = new System.Drawing.Point(283, 0);
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnEdit.Location = new System.Drawing.Point(207, 0);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(284, 37);
+            this.btnEdit.Size = new System.Drawing.Size(217, 37);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "EDIT EMPLOYEE";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -308,12 +336,16 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(567, 0);
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelete.Location = new System.Drawing.Point(421, 0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(284, 37);
+            this.btnDelete.Size = new System.Drawing.Size(217, 37);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "DELETE EMPLOYEE";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // editPanel
@@ -339,13 +371,14 @@
             this.editPanel.Controls.Add(this.txtELast);
             this.editPanel.Controls.Add(this.txtEPost);
             this.editPanel.Controls.Add(this.txtEFirst);
-            this.editPanel.Location = new System.Drawing.Point(419, 80);
+            this.editPanel.Location = new System.Drawing.Point(665, 90);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(338, 269);
+            this.editPanel.Size = new System.Drawing.Size(145, 116);
             this.editPanel.TabIndex = 4;
             // 
             // btnDeleteEmploy
             // 
+            this.btnDeleteEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteEmploy.Location = new System.Drawing.Point(659, 316);
             this.btnDeleteEmploy.Name = "btnDeleteEmploy";
             this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
@@ -372,6 +405,7 @@
             // 
             // btnEditEmploy
             // 
+            this.btnEditEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditEmploy.Location = new System.Drawing.Point(659, 242);
             this.btnEditEmploy.Name = "btnEditEmploy";
             this.btnEditEmploy.Size = new System.Drawing.Size(109, 37);
@@ -400,9 +434,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
             this.label9.Location = new System.Drawing.Point(371, 291);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.Size = new System.Drawing.Size(52, 17);
             this.label9.TabIndex = 35;
             this.label9.Text = "County";
             // 
@@ -416,9 +452,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
             this.label10.Location = new System.Drawing.Point(371, 193);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 13);
+            this.label10.Size = new System.Drawing.Size(105, 17);
             this.label10.TabIndex = 33;
             this.label10.Text = "Street address ";
             // 
@@ -432,11 +470,13 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
             this.label11.Location = new System.Drawing.Point(371, 242);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.Size = new System.Drawing.Size(77, 17);
             this.label11.TabIndex = 31;
-            this.label11.Text = "City/Town";
+            this.label11.Text = "City / Town";
             // 
             // txtECity
             // 
@@ -448,47 +488,55 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label12.ForeColor = System.Drawing.SystemColors.Control;
             this.label12.Location = new System.Drawing.Point(368, 340);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.Size = new System.Drawing.Size(67, 17);
             this.label12.TabIndex = 29;
             this.label12.Text = "Postcode";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label13.ForeColor = System.Drawing.SystemColors.Control;
             this.label13.Location = new System.Drawing.Point(79, 340);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 13);
+            this.label13.Size = new System.Drawing.Size(98, 17);
             this.label13.TabIndex = 28;
             this.label13.Text = "Email Address";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label14.ForeColor = System.Drawing.SystemColors.Control;
             this.label14.Location = new System.Drawing.Point(79, 291);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 13);
+            this.label14.Size = new System.Drawing.Size(128, 17);
             this.label14.TabIndex = 27;
             this.label14.Text = "Telephone number";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label15.ForeColor = System.Drawing.SystemColors.Control;
             this.label15.Location = new System.Drawing.Point(79, 242);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 13);
+            this.label15.Size = new System.Drawing.Size(74, 17);
             this.label15.TabIndex = 26;
             this.label15.Text = "Last name";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label16.ForeColor = System.Drawing.SystemColors.Control;
             this.label16.Location = new System.Drawing.Point(78, 187);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(88, 20);
+            this.label16.Size = new System.Drawing.Size(78, 17);
             this.label16.TabIndex = 25;
             this.label16.Text = "First name ";
             // 
@@ -533,12 +581,27 @@
             this.createEmployee1.LName = null;
             this.createEmployee1.TeleNumber = ((long)(0));
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.White;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnLogout.Location = new System.Drawing.Point(636, 0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(217, 37);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "LOG OUT";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(852, 480);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.createPanel);
             this.Controls.Add(this.editPanel);
             this.Controls.Add(this.btnDelete);
@@ -608,5 +671,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private Component_A_ClassLibrary.EditEmployee editEmployee1;
         private Component_A_ClassLibrary.DeleteEmployee deleteEmployee1;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
