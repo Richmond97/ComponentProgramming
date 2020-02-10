@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Component_A_ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,9 @@ namespace LoginForm
             InitializeComponent();
             ArrangePanels();
             BtnCreate_Click();
+
+            cbxDept.DataSource = Enum.GetValues(typeof(DepartmentType));
+            cbxRole.DataSource = Enum.GetValues(typeof(Roletype));
         }
 
         private void ArrangePanels()
@@ -77,7 +81,7 @@ namespace LoginForm
 
         private void BtnCreateEmploy_Click(object sender, EventArgs e)
         {
-            createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode);
+            createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode, cbxDept, cbxRole);
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -90,6 +94,20 @@ namespace LoginForm
             deleteEmployee1.DeleteStaff(dataGridView1);
 
             editEmployee1.searchEmployee(dataGridView1, txtSearch);
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value!= null)
+            {                
+                deleteEmployee1.PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
+            }
+            editPanel.Update();
+        }
+
+        private void BtnEditEmploy_Click(object sender, EventArgs e)
+        {
+            editEmployee1.editEmployee(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
         }
     }
 }

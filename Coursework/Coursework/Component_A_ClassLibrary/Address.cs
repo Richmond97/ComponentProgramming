@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,12 @@ namespace Component_A_ClassLibrary
             this.County = county;
             this.Postcode = postcode;
 
+        }
+
+        public string Split(string address, int index)
+        {
+            string[] words = address.Split('-');            
+            return words[index];
         }
 
         public string Street { get => street; set => street = value; }

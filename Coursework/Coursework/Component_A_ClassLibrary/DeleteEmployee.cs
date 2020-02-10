@@ -34,11 +34,8 @@ namespace Component_A_ClassLibrary
 
             if (table.SelectedRows.Count > 0)
             {
-
                 string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
-
                 
-
                 try
                 {
                     var varQueryDelete = (from a in db.employees
@@ -68,15 +65,46 @@ namespace Component_A_ClassLibrary
                 table.Refresh();
 
             }
-
-
-
-
-
-
-           
+                                                                               
         }
-        
-        
+
+        public void PopulateTxtBox(DataGridView table, DataGridViewCellEventArgs e, TextBox firstNa, TextBox lastNa,
+                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode
+                                    )
+        {
+
+            table.CurrentRow.Selected = true;
+            firstNa.Text = table.Rows[e.RowIndex].Cells["FirstName"].FormattedValue.ToString();
+            lastNa.Text = table.Rows[e.RowIndex].Cells["LastName"].FormattedValue.ToString();
+            telnumber.Text = table.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
+            email.Text = table.Rows[e.RowIndex].Cells["EmailAddress"].FormattedValue.ToString();
+            street.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 0);
+            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1); ;
+            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2); ;
+            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3); ;
+
+        }
+
+        public string Split(string address, int index)
+        {
+            if (String.IsNullOrEmpty(address))
+            {
+
+            }
+            try
+            {
+                string[] words = address.Split('-');
+                return words[index];
+
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e);
+                throw e;
+            }
+            
+        }
+
+
     }
 }

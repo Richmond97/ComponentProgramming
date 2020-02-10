@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
             this.staffID = new System.Windows.Forms.TextBox();
             this.loginComponent1 = new Component_A_ClassLibrary.LoginComponent(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.LoginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,16 +49,35 @@
             this.LoginPanel.Controls.Add(this.btnLogin);
             this.LoginPanel.Controls.Add(this.password);
             this.LoginPanel.Controls.Add(this.staffID);
-            this.LoginPanel.Location = new System.Drawing.Point(110, 7);
+            this.LoginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginPanel.Location = new System.Drawing.Point(0, 0);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(580, 437);
+            this.LoginPanel.Size = new System.Drawing.Size(582, 439);
             this.LoginPanel.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(209, 239);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Password : ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(209, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Staff ID : ";
             // 
             // Title
             // 
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(228, 124);
+            this.Title.Location = new System.Drawing.Point(236, 124);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(110, 36);
             this.Title.TabIndex = 3;
@@ -67,7 +86,7 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLogin.Location = new System.Drawing.Point(247, 333);
+            this.btnLogin.Location = new System.Drawing.Point(254, 313);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -77,14 +96,14 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(203, 275);
+            this.password.Location = new System.Drawing.Point(212, 255);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(159, 20);
             this.password.TabIndex = 1;
             // 
             // staffID
             // 
-            this.staffID.Location = new System.Drawing.Point(203, 226);
+            this.staffID.Location = new System.Drawing.Point(212, 206);
             this.staffID.Name = "staffID";
             this.staffID.Size = new System.Drawing.Size(159, 20);
             this.staffID.TabIndex = 0;
@@ -94,31 +113,14 @@
             this.loginComponent1.Password = null;
             this.loginComponent1.StaffID = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 207);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Staff ID : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(203, 259);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Password : ";
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 462);
+            this.ClientSize = new System.Drawing.Size(582, 439);
             this.Controls.Add(this.LoginPanel);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.LoginPanel.ResumeLayout(false);
             this.LoginPanel.PerformLayout();

@@ -55,27 +55,27 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.editPanel = new System.Windows.Forms.Panel();
+            this.btnDeleteEmploy = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEditEmploy = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtECounty = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEStreet = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtECity = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.btnDeleteEmploy = new System.Windows.Forms.Button();
+            this.txtEEmail = new System.Windows.Forms.TextBox();
+            this.txtETele = new System.Windows.Forms.TextBox();
+            this.txtELast = new System.Windows.Forms.TextBox();
+            this.txtEPost = new System.Windows.Forms.TextBox();
+            this.txtEFirst = new System.Windows.Forms.TextBox();
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.deleteEmployee1 = new Component_A_ClassLibrary.DeleteEmployee(this.components);
@@ -107,9 +107,9 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(23, 71);
+            this.createPanel.Location = new System.Drawing.Point(48, 117);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(150, 138);
+            this.createPanel.Size = new System.Drawing.Size(275, 269);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
@@ -259,6 +259,7 @@
             // txtNumber
             // 
             this.txtNumber.Location = new System.Drawing.Point(121, 182);
+            this.txtNumber.MaxLength = 11;
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(150, 20);
             this.txtNumber.TabIndex = 3;
@@ -323,54 +324,72 @@
             this.editPanel.Controls.Add(this.txtSearch);
             this.editPanel.Controls.Add(this.btnSearch);
             this.editPanel.Controls.Add(this.label9);
-            this.editPanel.Controls.Add(this.textBox1);
+            this.editPanel.Controls.Add(this.txtECounty);
             this.editPanel.Controls.Add(this.label10);
-            this.editPanel.Controls.Add(this.textBox2);
+            this.editPanel.Controls.Add(this.txtEStreet);
             this.editPanel.Controls.Add(this.label11);
-            this.editPanel.Controls.Add(this.textBox3);
+            this.editPanel.Controls.Add(this.txtECity);
             this.editPanel.Controls.Add(this.label12);
             this.editPanel.Controls.Add(this.label13);
             this.editPanel.Controls.Add(this.label14);
             this.editPanel.Controls.Add(this.label15);
             this.editPanel.Controls.Add(this.label16);
-            this.editPanel.Controls.Add(this.textBox4);
-            this.editPanel.Controls.Add(this.textBox5);
-            this.editPanel.Controls.Add(this.textBox6);
-            this.editPanel.Controls.Add(this.textBox7);
-            this.editPanel.Controls.Add(this.textBox8);
-            this.editPanel.Location = new System.Drawing.Point(62, 71);
+            this.editPanel.Controls.Add(this.txtEEmail);
+            this.editPanel.Controls.Add(this.txtETele);
+            this.editPanel.Controls.Add(this.txtELast);
+            this.editPanel.Controls.Add(this.txtEPost);
+            this.editPanel.Controls.Add(this.txtEFirst);
+            this.editPanel.Location = new System.Drawing.Point(419, 80);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(744, 417);
+            this.editPanel.Size = new System.Drawing.Size(338, 269);
             this.editPanel.TabIndex = 4;
+            // 
+            // btnDeleteEmploy
+            // 
+            this.btnDeleteEmploy.Location = new System.Drawing.Point(659, 316);
+            this.btnDeleteEmploy.Name = "btnDeleteEmploy";
+            this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
+            this.btnDeleteEmploy.TabIndex = 39;
+            this.btnDeleteEmploy.Text = "DELETE";
+            this.btnDeleteEmploy.UseVisualStyleBackColor = true;
+            this.btnDeleteEmploy.Click += new System.EventHandler(this.BtnDeleteEmploy_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(624, 192);
+            this.dataGridView1.Location = new System.Drawing.Point(213, 54);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(204, 239);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(436, 113);
             this.dataGridView1.TabIndex = 40;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // btnEditEmploy
             // 
-            this.btnEditEmploy.Location = new System.Drawing.Point(140, 344);
+            this.btnEditEmploy.Location = new System.Drawing.Point(659, 242);
             this.btnEditEmploy.Name = "btnEditEmploy";
             this.btnEditEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnEditEmploy.TabIndex = 39;
             this.btnEditEmploy.Text = "EDIT";
             this.btnEditEmploy.UseVisualStyleBackColor = true;
+            this.btnEditEmploy.Click += new System.EventHandler(this.BtnEditEmploy_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(140, 49);
+            this.txtSearch.Location = new System.Drawing.Point(284, 14);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(143, 20);
             this.txtSearch.TabIndex = 37;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(287, 49);
+            this.btnSearch.Location = new System.Drawing.Point(446, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(118, 23);
             this.btnSearch.TabIndex = 36;
@@ -381,55 +400,55 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(452, 243);
+            this.label9.Location = new System.Drawing.Point(371, 291);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 35;
             this.label9.Text = "County";
             // 
-            // textBox1
+            // txtECounty
             // 
-            this.textBox1.Location = new System.Drawing.Point(452, 269);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 34;
+            this.txtECounty.Location = new System.Drawing.Point(371, 312);
+            this.txtECounty.Name = "txtECounty";
+            this.txtECounty.Size = new System.Drawing.Size(150, 20);
+            this.txtECounty.TabIndex = 34;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(452, 125);
+            this.label10.Location = new System.Drawing.Point(371, 193);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 13);
             this.label10.TabIndex = 33;
             this.label10.Text = "Street address ";
             // 
-            // textBox2
+            // txtEStreet
             // 
-            this.textBox2.Location = new System.Drawing.Point(452, 151);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 32;
+            this.txtEStreet.Location = new System.Drawing.Point(371, 214);
+            this.txtEStreet.Name = "txtEStreet";
+            this.txtEStreet.Size = new System.Drawing.Size(150, 20);
+            this.txtEStreet.TabIndex = 32;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(452, 184);
+            this.label11.Location = new System.Drawing.Point(371, 242);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 31;
             this.label11.Text = "City/Town";
             // 
-            // textBox3
+            // txtECity
             // 
-            this.textBox3.Location = new System.Drawing.Point(452, 210);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 30;
+            this.txtECity.Location = new System.Drawing.Point(371, 263);
+            this.txtECity.Name = "txtECity";
+            this.txtECity.Size = new System.Drawing.Size(150, 20);
+            this.txtECity.TabIndex = 30;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(452, 302);
+            this.label12.Location = new System.Drawing.Point(368, 340);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 13);
             this.label12.TabIndex = 29;
@@ -438,7 +457,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(140, 272);
+            this.label13.Location = new System.Drawing.Point(79, 340);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(73, 13);
             this.label13.TabIndex = 28;
@@ -447,7 +466,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(140, 223);
+            this.label14.Location = new System.Drawing.Point(79, 291);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(96, 13);
             this.label14.TabIndex = 27;
@@ -456,7 +475,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(140, 174);
+            this.label15.Location = new System.Drawing.Point(79, 242);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 13);
             this.label15.TabIndex = 26;
@@ -465,56 +484,48 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(140, 125);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.ForeColor = System.Drawing.SystemColors.Control;
+            this.label16.Location = new System.Drawing.Point(78, 187);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 13);
+            this.label16.Size = new System.Drawing.Size(88, 20);
             this.label16.TabIndex = 25;
             this.label16.Text = "First name ";
             // 
-            // textBox4
+            // txtEEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(140, 293);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(150, 20);
-            this.textBox4.TabIndex = 24;
+            this.txtEEmail.Location = new System.Drawing.Point(79, 361);
+            this.txtEEmail.Name = "txtEEmail";
+            this.txtEEmail.Size = new System.Drawing.Size(150, 20);
+            this.txtEEmail.TabIndex = 24;
             // 
-            // textBox5
+            // txtETele
             // 
-            this.textBox5.Location = new System.Drawing.Point(140, 244);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(150, 20);
-            this.textBox5.TabIndex = 23;
+            this.txtETele.Location = new System.Drawing.Point(79, 312);
+            this.txtETele.Name = "txtETele";
+            this.txtETele.Size = new System.Drawing.Size(150, 20);
+            this.txtETele.TabIndex = 23;
             // 
-            // textBox6
+            // txtELast
             // 
-            this.textBox6.Location = new System.Drawing.Point(140, 195);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(150, 20);
-            this.textBox6.TabIndex = 22;
+            this.txtELast.Location = new System.Drawing.Point(79, 263);
+            this.txtELast.Name = "txtELast";
+            this.txtELast.Size = new System.Drawing.Size(150, 20);
+            this.txtELast.TabIndex = 22;
             // 
-            // textBox7
+            // txtEPost
             // 
-            this.textBox7.Location = new System.Drawing.Point(452, 328);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(150, 20);
-            this.textBox7.TabIndex = 21;
+            this.txtEPost.Location = new System.Drawing.Point(371, 361);
+            this.txtEPost.Name = "txtEPost";
+            this.txtEPost.Size = new System.Drawing.Size(150, 20);
+            this.txtEPost.TabIndex = 21;
             // 
-            // textBox8
+            // txtEFirst
             // 
-            this.textBox8.Location = new System.Drawing.Point(140, 146);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(150, 20);
-            this.textBox8.TabIndex = 20;
-            // 
-            // btnDeleteEmploy
-            // 
-            this.btnDeleteEmploy.Location = new System.Drawing.Point(282, 344);
-            this.btnDeleteEmploy.Name = "btnDeleteEmploy";
-            this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
-            this.btnDeleteEmploy.TabIndex = 39;
-            this.btnDeleteEmploy.Text = "DELETE";
-            this.btnDeleteEmploy.UseVisualStyleBackColor = true;
-            this.btnDeleteEmploy.Click += new System.EventHandler(this.BtnDeleteEmploy_Click);
+            this.txtEFirst.Location = new System.Drawing.Point(79, 214);
+            this.txtEFirst.Name = "txtEFirst";
+            this.txtEFirst.Size = new System.Drawing.Size(150, 20);
+            this.txtEFirst.TabIndex = 20;
             // 
             // createEmployee1
             // 
@@ -534,6 +545,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCreate);
             this.Name = "ManageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageForm";
             this.createPanel.ResumeLayout(false);
             this.createPanel.PerformLayout();
@@ -572,21 +584,21 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtECounty;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEStreet;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtECity;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtEEmail;
+        private System.Windows.Forms.TextBox txtETele;
+        private System.Windows.Forms.TextBox txtELast;
+        private System.Windows.Forms.TextBox txtEPost;
+        private System.Windows.Forms.TextBox txtEFirst;
         private System.Windows.Forms.Button btnDeleteEmploy;
         private Component_A_ClassLibrary.CreateEmployee createEmployee1;
         private System.Windows.Forms.ComboBox cbxRole;

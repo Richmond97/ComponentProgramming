@@ -36,7 +36,7 @@ namespace Component_A_ClassLibrary
         //enum departType {Engineering, Plumbing, Roofing, Carpentry, Bricklaying, Office }
 
         
-      public void AddToDB(TextBox firstNa, TextBox lastNa, TextBox telnumber,TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode)
+      public void AddToDB(TextBox firstNa, TextBox lastNa, TextBox telnumber,TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode, ComboBox typeDept, ComboBox typeRole)
         {
             try
             {
@@ -69,16 +69,20 @@ namespace Component_A_ClassLibrary
                     addedEmployee.Password = firstNa.Text;
                     addedEmployee.Telephone = telnumber.Text;
                     addedEmployee.EmailAddress = email.Text;
-
-
-                    //addedEmployee.departments = dept;
-                    //addedEmployee.roles = roleT;
-
-
-                    addedEmployee.Address = (street.Text + " " + city.Text + " " + county.Text + " " + postcode.Text);
+                    addedEmployee.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
                     addedEmployee.DateJoined = DateTime.Today.Date;
                     addedEmployee.StaffID = IDcreation();
                     Console.WriteLine(" today date is " + DateTime.Today.Date);
+
+
+                    role addedRole = new role();
+                    addedRole.RoleType = typeRole.Text;
+
+                    department addedDept = new department();
+                    addedDept.DeptName = typeDept.Text;
+
+                    addedEmployee.departments.Add(addedDept);
+                    addedEmployee.roles.Add(addedRole);
 
                     //Add new Employee to database
                     db.employees.InsertOnSubmit(addedEmployee);
@@ -88,6 +92,14 @@ namespace Component_A_ClassLibrary
 
                     MessageBox.Show("Employee Added To DB");
 
+                    firstNa.Text = String.Empty;
+                    lastNa.Text = String.Empty;
+                    telnumber.Text = String.Empty;
+                    email.Text = String.Empty;
+                    street.Text = String.Empty;
+                    city.Text = String.Empty;
+                    county.Text = String.Empty;
+                    postcode.Text = String.Empty;
                 }
 
             }
@@ -116,5 +128,7 @@ namespace Component_A_ClassLibrary
 
             return verifiedID;
         }
+
+        
     }
 }

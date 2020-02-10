@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Component_A_ClassLibrary
 {
-    public partial class EditEmployee : Component
+    public partial class EditEmployee : Component 
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
 
@@ -35,6 +35,13 @@ namespace Component_A_ClassLibrary
                              select a).ToList();
                 table.DataSource = varQueryID;
 
+                table.Columns["EmployeeID"].Visible = false;
+                table.Columns["Password"].Visible = false;
+                table.Columns["Address"].Visible = false;
+                table.Columns["EmailAddress"].Visible = false;
+                table.Columns["Telephone"].Visible = false;
+
+
             }
             catch (Exception e)
             {
@@ -44,8 +51,11 @@ namespace Component_A_ClassLibrary
             
 
         }
-        
-        public void editEmployee(DataGridView table)
+
+
+        public void editEmployee(DataGridView table, TextBox firstNa, TextBox lastNa,
+                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode
+                                    )
         {
             var Selected = table[0, table.SelectedRows[0].Index].Value.ToString();
 
@@ -53,11 +63,20 @@ namespace Component_A_ClassLibrary
             {
                 var result = (from p in db.employees
                                  where p.EmployeeID == Convert.ToInt64(Selected)
-                                 select p).SingleOrDefault();
+                                 select p);
 
-                //result.is_default = false;
+                //result. = false;
 
-               // Context.SaveChanges();
+                foreach (var field in result)
+                {
+                    field.FirstName = firstNa.Text;
+                    field.LastName = lastNa.Text;
+                    field.Telephone = telnumber.Text;
+                    field.EmailAddress = email.Text;
+                    field.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
+                }
+                //save change to the database
+                db.SubmitChanges();
 
             }
             catch (Exception e)
@@ -65,8 +84,7 @@ namespace Component_A_ClassLibrary
                 MessageBox.Show($"{e}");
                 throw;
             }
-
-
+                                  
         }
         
     }
