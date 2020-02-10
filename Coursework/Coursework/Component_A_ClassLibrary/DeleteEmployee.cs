@@ -5,14 +5,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Component_A_ClassLibrary
 {
     
     public partial class DeleteEmployee : Component
     {
-
-       
+        DataClasses1DataContext db = new DataClasses1DataContext();
 
 
 
@@ -28,18 +28,53 @@ namespace Component_A_ClassLibrary
             InitializeComponent();
         }
 
-        public bool DeleteStaff(int staffID)
+        public void DeleteStaff(DataGridView table)
         {
-            bool deleted = true;
-            //remove them from the database
-            //based on employee.id
+            //string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
 
-            if (true)
+            if (table.SelectedRows.Count > 0)
             {
-                //if successful
+
+                string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
+
+                
+
+                try
+                {
+                    var varQueryDelete = (from a in db.employees
+                                      where a.EmployeeID == Convert.ToInt64(deletedID)
+                                      select a).Single();                   
+
+                    db.employees.DeleteOnSubmit(varQueryDelete);
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"{e}"); 
+                    throw;
+                }
+
+                try
+                {
+                    db.SubmitChanges();
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+                table.Refresh();
+
             }
 
-            return deleted;
+
+
+
+
+
+           
         }
         
         
