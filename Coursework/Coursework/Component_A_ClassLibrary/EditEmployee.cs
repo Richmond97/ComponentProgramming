@@ -43,6 +43,31 @@ namespace Component_A_ClassLibrary
             }
             
 
-        }    
+        }
+        
+        public void editEmployee(DataGridView table)
+        {
+            var Selected = table[0, table.SelectedRows[0].Index].Value.ToString();
+
+            try
+            {
+                var result = (from p in db.employees
+                                 where p.EmployeeID == Convert.ToInt64(Selected)
+                                 select p).SingleOrDefault();
+
+                //result.is_default = false;
+
+               // Context.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
+                throw;
+            }
+
+
+        }
+        
     }
 }

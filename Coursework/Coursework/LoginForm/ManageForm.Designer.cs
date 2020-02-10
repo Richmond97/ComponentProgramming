@@ -55,6 +55,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.editPanel = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -95,12 +96,11 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
-            this.deletePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.deletePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // createPanel
@@ -360,6 +360,16 @@
             this.editPanel.Name = "editPanel";
             this.editPanel.Size = new System.Drawing.Size(851, 479);
             this.editPanel.TabIndex = 4;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(624, 192);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(204, 239);
+            this.dataGridView1.TabIndex = 40;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // button3
             // 
@@ -700,15 +710,6 @@
             this.createEmployee1.LName = null;
             this.createEmployee1.TeleNumber = ((long)(0));
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(624, 192);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(204, 239);
-            this.dataGridView1.TabIndex = 40;
-            // 
             // ManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,9 +728,9 @@
             this.createPanel.PerformLayout();
             this.editPanel.ResumeLayout(false);
             this.editPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.deletePanel.ResumeLayout(false);
             this.deletePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

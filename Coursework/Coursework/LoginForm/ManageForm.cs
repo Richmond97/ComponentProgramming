@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace LoginForm
 {
     public partial class ManageForm : Form
@@ -83,6 +82,11 @@ namespace LoginForm
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             editEmployee1.searchEmployee(dataGridView1, txtSearch);
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
