@@ -12,7 +12,6 @@ namespace Component_A_ClassLibrary
 {
     public partial class LoginComponent : Component
     {
-
         private int staffID = 0;
         private string password = "";
 

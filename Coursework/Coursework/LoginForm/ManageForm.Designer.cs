@@ -76,13 +76,17 @@
             this.txtELast = new System.Windows.Forms.TextBox();
             this.txtEPost = new System.Windows.Forms.TextBox();
             this.txtEFirst = new System.Windows.Forms.TextBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdName = new System.Windows.Forms.RadioButton();
+            this.rdID = new System.Windows.Forms.RadioButton();
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.deleteEmployee1 = new Component_A_ClassLibrary.DeleteEmployee(this.components);
-            this.btnLogout = new System.Windows.Forms.Button();
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // createPanel
@@ -108,13 +112,14 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(9, 43);
+            this.createPanel.Location = new System.Drawing.Point(12, 59);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(798, 428);
+            this.createPanel.Size = new System.Drawing.Size(753, 365);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
             // 
+            this.cbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRole.FormattingEnabled = true;
             this.cbxRole.Location = new System.Drawing.Point(567, 133);
             this.cbxRole.Name = "cbxRole";
@@ -123,6 +128,7 @@
             // 
             // cbxDept
             // 
+            this.cbxDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDept.FormattingEnabled = true;
             this.cbxDept.Location = new System.Drawing.Point(567, 84);
             this.cbxDept.Name = "cbxDept";
@@ -350,6 +356,7 @@
             // 
             // editPanel
             // 
+            this.editPanel.Controls.Add(this.groupBox1);
             this.editPanel.Controls.Add(this.btnDeleteEmploy);
             this.editPanel.Controls.Add(this.dataGridView1);
             this.editPanel.Controls.Add(this.btnEditEmploy);
@@ -371,15 +378,15 @@
             this.editPanel.Controls.Add(this.txtELast);
             this.editPanel.Controls.Add(this.txtEPost);
             this.editPanel.Controls.Add(this.txtEFirst);
-            this.editPanel.Location = new System.Drawing.Point(665, 90);
+            this.editPanel.Location = new System.Drawing.Point(673, 43);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(145, 116);
+            this.editPanel.Size = new System.Drawing.Size(167, 88);
             this.editPanel.TabIndex = 4;
             // 
             // btnDeleteEmploy
             // 
             this.btnDeleteEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEmploy.Location = new System.Drawing.Point(659, 316);
+            this.btnDeleteEmploy.Location = new System.Drawing.Point(662, 281);
             this.btnDeleteEmploy.Name = "btnDeleteEmploy";
             this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnDeleteEmploy.TabIndex = 39;
@@ -406,7 +413,7 @@
             // btnEditEmploy
             // 
             this.btnEditEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEmploy.Location = new System.Drawing.Point(659, 242);
+            this.btnEditEmploy.Location = new System.Drawing.Point(662, 281);
             this.btnEditEmploy.Name = "btnEditEmploy";
             this.btnEditEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnEditEmploy.TabIndex = 39;
@@ -423,9 +430,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(446, 12);
+            this.btnSearch.Location = new System.Drawing.Point(442, 12);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(118, 23);
+            this.btnSearch.Size = new System.Drawing.Size(109, 22);
             this.btnSearch.TabIndex = 36;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -575,12 +582,6 @@
             this.txtEFirst.Size = new System.Drawing.Size(150, 20);
             this.txtEFirst.TabIndex = 20;
             // 
-            // createEmployee1
-            // 
-            this.createEmployee1.FName = null;
-            this.createEmployee1.LName = null;
-            this.createEmployee1.TeleNumber = ((long)(0));
-            // 
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.White;
@@ -594,6 +595,50 @@
             this.btnLogout.Text = "LOG OUT";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdID);
+            this.groupBox1.Controls.Add(this.rdName);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(570, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(168, 36);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            // 
+            // rdName
+            // 
+            this.rdName.AutoSize = true;
+            this.rdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdName.ForeColor = System.Drawing.Color.White;
+            this.rdName.Location = new System.Drawing.Point(9, 13);
+            this.rdName.Name = "rdName";
+            this.rdName.Size = new System.Drawing.Size(53, 17);
+            this.rdName.TabIndex = 0;
+            this.rdName.TabStop = true;
+            this.rdName.Text = "Name";
+            this.rdName.UseVisualStyleBackColor = true;
+            // 
+            // rdID
+            // 
+            this.rdID.AutoSize = true;
+            this.rdID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdID.ForeColor = System.Drawing.Color.White;
+            this.rdID.Location = new System.Drawing.Point(92, 11);
+            this.rdID.Name = "rdID";
+            this.rdID.Size = new System.Drawing.Size(39, 20);
+            this.rdID.TabIndex = 1;
+            this.rdID.TabStop = true;
+            this.rdID.Text = "ID";
+            this.rdID.UseVisualStyleBackColor = true;
+            // 
+            // createEmployee1
+            // 
+            this.createEmployee1.FName = null;
+            this.createEmployee1.LName = null;
+            this.createEmployee1.TeleNumber = ((long)(0));
             // 
             // ManageForm
             // 
@@ -615,6 +660,8 @@
             this.editPanel.ResumeLayout(false);
             this.editPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -672,5 +719,8 @@
         private Component_A_ClassLibrary.EditEmployee editEmployee1;
         private Component_A_ClassLibrary.DeleteEmployee deleteEmployee1;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdID;
+        private System.Windows.Forms.RadioButton rdName;
     }
 }

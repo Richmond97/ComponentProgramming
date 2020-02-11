@@ -24,16 +24,30 @@ namespace Component_A_ClassLibrary
 
             InitializeComponent();
         }
-
-        public void searchEmployee(DataGridView table, TextBox searchQ)
+        
+        public void searchEmployee(DataGridView table, TextBox searchQ, RadioButton searchName, RadioButton searchID)
         {
             try
             {
-                var varQueryID = (from a in db.employees
-                             where String.IsNullOrWhiteSpace(searchQ.Text)
-                             || a.FirstName.Contains(searchQ.Text.Trim())
-                             select a).ToList();
-                table.DataSource = varQueryID;
+               
+                if (searchID.Checked)
+                {
+                   var  varQueryName =   (from a in db.employees
+                                      where String.IsNullOrWhiteSpace(searchQ.Text)
+                                      || a.FirstName.Contains(searchQ.Text.Trim())
+                                      select a).ToList();
+
+                    table.DataSource = varQueryName;
+
+                }
+                else
+                {
+                   var  varQueryID = (from a in db.employees
+                                      where String.IsNullOrWhiteSpace(searchQ.Text)
+                                      || a.StaffID.ToString().Contains(searchQ.Text.Trim())
+                                      select a).ToList();
+                    table.DataSource = varQueryID;
+                }
 
                 table.Columns["EmployeeID"].Visible = false;
                 table.Columns["Password"].Visible = false;
@@ -67,7 +81,7 @@ namespace Component_A_ClassLibrary
 
                 //result. = false;
 
-                
+
                 //save change to the database
                 if ((MessageBox.Show("Save changes", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
                 {

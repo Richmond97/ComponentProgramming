@@ -48,6 +48,8 @@ namespace LoginForm
 
             createPanel.Size = new Size(851, 443);
             editPanel.Size = new Size(851, 443);
+
+            rdName.Checked = true;
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
@@ -104,21 +106,21 @@ namespace LoginForm
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            editEmployee1.searchEmployee(dataGridView1, txtSearch);
+            editEmployee1.searchEmployee(dataGridView1, txtSearch, rdID,rdName);
         }
 
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
         {
             deleteEmployee1.DeleteStaff(dataGridView1);
 
-            editEmployee1.searchEmployee(dataGridView1, txtSearch);
+            editEmployee1.searchEmployee(dataGridView1, txtSearch, rdID, rdName);
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value!= null)
             {                
-                deleteEmployee1.PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
+                PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
             }
             editPanel.Update();
         }
@@ -135,15 +137,54 @@ namespace LoginForm
 
             if ((MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
             {
-                this.Dispose();
+                this.Hide();
                 LoginForm login = new LoginForm();
-                login.Show();
+                login.Show();    
 
             }
 
             //DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons., MessageBoxIcon.Question);
+
             
 
+
+
+        }
+
+        public void PopulateTxtBox(DataGridView table, DataGridViewCellEventArgs e, TextBox firstNa, TextBox lastNa,
+                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode
+                                    )
+        {
+
+            table.CurrentRow.Selected = true;
+            firstNa.Text = table.Rows[e.RowIndex].Cells["FirstName"].FormattedValue.ToString();
+            lastNa.Text = table.Rows[e.RowIndex].Cells["LastName"].FormattedValue.ToString();
+            telnumber.Text = table.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
+            email.Text = table.Rows[e.RowIndex].Cells["EmailAddress"].FormattedValue.ToString();
+            street.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 0);
+            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1); ;
+            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2); ;
+            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3); ;
+
+        }
+
+        public string Split(string address, int index)
+        {
+            if (String.IsNullOrEmpty(address))
+            {
+
+            }
+            try
+            {
+                string[] words = address.Split('-');
+                return words[index];
+
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e);
+                throw e;
+            }
 
         }
     }
