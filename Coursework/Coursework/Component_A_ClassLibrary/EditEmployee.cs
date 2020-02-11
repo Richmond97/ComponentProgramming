@@ -67,16 +67,34 @@ namespace Component_A_ClassLibrary
 
                 //result. = false;
 
-                foreach (var field in result)
-                {
-                    field.FirstName = firstNa.Text;
-                    field.LastName = lastNa.Text;
-                    field.Telephone = telnumber.Text;
-                    field.EmailAddress = email.Text;
-                    field.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
-                }
+                
                 //save change to the database
-                db.SubmitChanges();
+                if ((MessageBox.Show("Save changes", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+                {
+                    foreach (var field in result)
+                    {
+                        field.FirstName = firstNa.Text;
+                        field.LastName = lastNa.Text;
+                        field.Telephone = telnumber.Text;
+                        field.EmailAddress = email.Text;
+                        field.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
+
+                    }
+
+                    db.SubmitChanges();
+
+                    firstNa.Text = "";
+                    lastNa.Text = "";
+                    telnumber.Text = "";
+                    email.Text = "";
+                    street.Text = "";
+                    city.Text = "";
+                    county.Text = "";
+                    postcode.Text = "";
+
+                    table.CurrentRow.Selected = false;
+                }
+               
 
             }
             catch (Exception e)

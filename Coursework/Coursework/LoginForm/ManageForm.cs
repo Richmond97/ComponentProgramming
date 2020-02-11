@@ -13,7 +13,8 @@ namespace LoginForm
 {
     public partial class ManageForm : Form
     {
-        public ManageForm()
+
+        private ManageForm()
         {
             InitializeComponent();
             ArrangePanels();
@@ -21,6 +22,23 @@ namespace LoginForm
 
             cbxDept.DataSource = Enum.GetValues(typeof(DepartmentType));
             cbxRole.DataSource = Enum.GetValues(typeof(Roletype));
+        }
+
+        private static readonly object locker = new object();
+        private static ManageForm instance = null;
+        public static ManageForm Instance
+        {
+            get
+            {
+                lock (locker)
+                {
+                    if (instance == null)
+                    {
+                        instance = new ManageForm();
+                    }
+                    return instance;
+                }
+            }
         }
 
         private void ArrangePanels()

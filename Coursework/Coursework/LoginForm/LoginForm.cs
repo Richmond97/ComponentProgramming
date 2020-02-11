@@ -24,8 +24,9 @@ namespace LoginForm
 
             if (loginComponent1.Verification())
             {
-                this.Hide();
-                ManageForm manage = new ManageForm();
+                // this.Hide();
+                this.Dispose();
+                ManageForm manage = ManageForm.Instance;                
                 manage.Show();
 
             }        
