@@ -18,10 +18,7 @@ namespace LoginForm
         {
             InitializeComponent();
             ArrangePanels();
-            BtnCreate_Click();
-
-            cbxDept.DataSource = Enum.GetValues(typeof(DepartmentType));
-            cbxRole.DataSource = Enum.GetValues(typeof(Roletype));
+            BtnCreate_Click();            
         }
 
         private static readonly object locker = new object();
@@ -41,6 +38,8 @@ namespace LoginForm
             }
         }
 
+
+        #region Panel and toolbar button settings
         private void ArrangePanels()
         {
             createPanel.Location = new Point(0, 37);
@@ -50,16 +49,17 @@ namespace LoginForm
             editPanel.Size = new Size(851, 443);
 
             rdName.Checked = true;
+
+            cbxDept.DataSource = Enum.GetValues(typeof(DepartmentType));
+            cbxEDept.DataSource = Enum.GetValues(typeof(DepartmentType));
+
+            cbxRole.DataSource = Enum.GetValues(typeof(Roletype));
+            cbxERole.DataSource = Enum.GetValues(typeof(Roletype));
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            createPanel.Visible = true;
-            btnCreate.BackColor = Color.DarkGray;
-            btnEdit.BackColor = Color.White;
-            btnDelete.BackColor = Color.White;
-
-            editPanel.Visible = false;
+            BtnCreate_Click();
         }
 
         private void BtnCreate_Click()
@@ -82,7 +82,6 @@ namespace LoginForm
             createPanel.Visible = false;
             btnEditEmploy.Show();
             btnDeleteEmploy.Hide();
-
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -95,40 +94,84 @@ namespace LoginForm
             createPanel.Visible = false;
             btnEditEmploy.Hide();
             btnDeleteEmploy.Show();
-
         }
 
         private void BtnCreateEmploy_Click(object sender, EventArgs e)
         {
             createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode, cbxDept, cbxRole);
+            txtName.Text = String.Empty;
+            txtSurname.Text = String.Empty;
+            txtNumber.Text = String.Empty;
+            txtEmail.Text = String.Empty;
+            txtStreet.Text = String.Empty;
+            txtCity.Text = String.Empty;
+            txtCounty.Text = String.Empty;
+            txtPostcode.Text = String.Empty;
         }
 
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+
+            // DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question;
+
+            if ((MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginForm login = new LoginForm();
+                login.Show();
+
+            }
+
+            //DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons., MessageBoxIcon.Question);
+
+
+        }
+
+        #endregion
+
+
+
+        #region Action Button Functions
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            editEmployee1.searchEmployee(dataGridView1, txtSearch, rdID,rdName);
+            editEmployee1.SearchEmployee(dataGridView1, txtSearch,rdName);
         }
 
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
         {
             deleteEmployee1.DeleteStaff(dataGridView1);
-            dataGridView1.Update();
-            dataGridView1.Refresh();
 
-            //editEmployee1.searchEmployee(dataGridView1, txtSearch, rdID, rdName);
+            RefreshGrid();
+        }              
+
+        private void BtnEditEmploy_Click(object sender, EventArgs e)
+        {
+            editEmployee1.EditDetails(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
+            dataGridView1.CurrentRow.Selected = false;
+
+            ClearFields();
+
+
+            RefreshGrid();
         }
+                
+
+        #endregion
+
+
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 // ignore header row and any column
-                if (e.RowIndex == -1)  
+                if (e.RowIndex == -1)
                 {
                     return;
                 }
                 else if (dataGridView1.CurrentCell.Value != null)
                 {
-                    PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost, txtEPassword, txtEDateJoined);
+                    PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost,cbxEDept, cbxERole, txtEPassword, txtEDateJoined);
                 }
                 editPanel.Update();
             }
@@ -136,38 +179,12 @@ namespace LoginForm
             {
                 Console.WriteLine(ex);
                 throw new ArgumentOutOfRangeException("Index parameter is out of range.", ex);
-            }            
-        }
-
-        private void BtnEditEmploy_Click(object sender, EventArgs e)
-        {
-            editEmployee1.editEmployee(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
-        }
-
-        private void BtnLogout_Click(object sender, EventArgs e)
-        {
-
-           // DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question;
-
-            if ((MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
-            {
-                this.Hide();
-                LoginForm login = new LoginForm();
-                login.Show();    
-
             }
-
-            //DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons., MessageBoxIcon.Question);
-
-            
-
-
-
         }
 
         public void PopulateTxtBox(DataGridView table, DataGridViewCellEventArgs e, TextBox firstNa, TextBox lastNa,
                                     TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county,
-                                    TextBox postcode, TextBox password, TextBox dateJoined
+                                    TextBox postcode, ComboBox dept, ComboBox role, TextBox password, TextBox dateJoined
                                     )
         {
 
@@ -180,6 +197,14 @@ namespace LoginForm
             city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1);
             county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2);
             postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3);
+
+
+
+            //dept.SelectedText = table.Rows[e.RowIndex].Cells["Department"].FormattedValue.ToString();
+            //role.SelectedText = table.Rows[e.RowIndex].Cells["Role"].FormattedValue.ToString();
+
+
+
             password.Text = table.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
             dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
 
@@ -198,6 +223,42 @@ namespace LoginForm
                 throw e;
             }
 
+        }
+
+        public void ClearFields()
+        {
+            txtEFirst.Text = String.Empty;
+            txtELast.Text = String.Empty;
+            txtETele.Text = String.Empty;
+            txtEEmail.Text = String.Empty;
+            txtEStreet.Text = String.Empty;
+            txtECity.Text = String.Empty;
+            txtECounty.Text = String.Empty;
+            txtEPost.Text = String.Empty;
+            txtEPassword.Text = String.Empty;
+            txtEDateJoined.Text = String.Empty;
+        }
+
+        public void RefreshGrid()
+        {
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+        }
+
+        private void ChbxDetails_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbxDetails.Checked)
+            {
+                cbxEDept.Enabled = true;
+                cbxERole.Enabled = true;
+                txtEPassword.Enabled = true;
+            }
+            else
+            {
+                cbxEDept.Enabled = false;
+                cbxERole.Enabled = false;
+                txtEPassword.Enabled = false;
+            }
         }
     }
 }

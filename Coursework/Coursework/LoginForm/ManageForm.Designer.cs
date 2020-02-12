@@ -65,8 +65,12 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtECounty = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtEPassword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtEStreet = new System.Windows.Forms.TextBox();
+            this.txtEDateJoined = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtECity = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -83,10 +87,11 @@
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.deleteEmployee1 = new Component_A_ClassLibrary.DeleteEmployee(this.components);
-            this.txtEDateJoined = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtEPassword = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbxEDept = new System.Windows.Forms.ComboBox();
+            this.cbxERole = new System.Windows.Forms.ComboBox();
+            this.chbxDetails = new System.Windows.Forms.CheckBox();
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -116,9 +121,9 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(171, 99);
+            this.createPanel.Location = new System.Drawing.Point(23, 431);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(109, 72);
+            this.createPanel.Size = new System.Drawing.Size(130, 37);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
@@ -360,7 +365,10 @@
             // 
             // editPanel
             // 
+            this.editPanel.Controls.Add(this.chbxDetails);
+            this.editPanel.Controls.Add(this.cbxERole);
             this.editPanel.Controls.Add(this.groupBox1);
+            this.editPanel.Controls.Add(this.cbxEDept);
             this.editPanel.Controls.Add(this.btnDeleteEmploy);
             this.editPanel.Controls.Add(this.dataGridView1);
             this.editPanel.Controls.Add(this.btnEditEmploy);
@@ -370,8 +378,10 @@
             this.editPanel.Controls.Add(this.txtECounty);
             this.editPanel.Controls.Add(this.label18);
             this.editPanel.Controls.Add(this.txtEPassword);
+            this.editPanel.Controls.Add(this.label22);
             this.editPanel.Controls.Add(this.label10);
             this.editPanel.Controls.Add(this.label17);
+            this.editPanel.Controls.Add(this.label21);
             this.editPanel.Controls.Add(this.txtEStreet);
             this.editPanel.Controls.Add(this.txtEDateJoined);
             this.editPanel.Controls.Add(this.label11);
@@ -386,9 +396,9 @@
             this.editPanel.Controls.Add(this.txtELast);
             this.editPanel.Controls.Add(this.txtEPost);
             this.editPanel.Controls.Add(this.txtEFirst);
-            this.editPanel.Location = new System.Drawing.Point(493, 99);
+            this.editPanel.Location = new System.Drawing.Point(12, 43);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(123, 93);
+            this.editPanel.Size = new System.Drawing.Size(841, 447);
             this.editPanel.TabIndex = 4;
             // 
             // groupBox1
@@ -432,7 +442,7 @@
             // btnDeleteEmploy
             // 
             this.btnDeleteEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEmploy.Location = new System.Drawing.Point(662, 330);
+            this.btnDeleteEmploy.Location = new System.Drawing.Point(382, 397);
             this.btnDeleteEmploy.Name = "btnDeleteEmploy";
             this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnDeleteEmploy.TabIndex = 39;
@@ -459,7 +469,7 @@
             // btnEditEmploy
             // 
             this.btnEditEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEmploy.Location = new System.Drawing.Point(662, 330);
+            this.btnEditEmploy.Location = new System.Drawing.Point(382, 397);
             this.btnEditEmploy.Name = "btnEditEmploy";
             this.btnEditEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnEditEmploy.TabIndex = 39;
@@ -502,6 +512,25 @@
             this.txtECounty.Size = new System.Drawing.Size(150, 20);
             this.txtECounty.TabIndex = 34;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label18.ForeColor = System.Drawing.SystemColors.Control;
+            this.label18.Location = new System.Drawing.Point(645, 291);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(69, 17);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Password";
+            // 
+            // txtEPassword
+            // 
+            this.txtEPassword.Enabled = false;
+            this.txtEPassword.Location = new System.Drawing.Point(645, 312);
+            this.txtEPassword.Name = "txtEPassword";
+            this.txtEPassword.Size = new System.Drawing.Size(150, 20);
+            this.txtEPassword.TabIndex = 32;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -513,12 +542,31 @@
             this.label10.TabIndex = 33;
             this.label10.Text = "Street address ";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label17.ForeColor = System.Drawing.SystemColors.Control;
+            this.label17.Location = new System.Drawing.Point(645, 340);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(84, 17);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Date Joined";
+            // 
             // txtEStreet
             // 
             this.txtEStreet.Location = new System.Drawing.Point(362, 214);
             this.txtEStreet.Name = "txtEStreet";
             this.txtEStreet.Size = new System.Drawing.Size(150, 20);
             this.txtEStreet.TabIndex = 32;
+            // 
+            // txtEDateJoined
+            // 
+            this.txtEDateJoined.Enabled = false;
+            this.txtEDateJoined.Location = new System.Drawing.Point(645, 361);
+            this.txtEDateJoined.Name = "txtEDateJoined";
+            this.txtEDateJoined.Size = new System.Drawing.Size(150, 20);
+            this.txtEDateJoined.TabIndex = 30;
             // 
             // label11
             // 
@@ -642,49 +690,58 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
-            // createEmployee1
+            // label21
             // 
-            this.createEmployee1.FName = null;
-            this.createEmployee1.LName = null;
-            this.createEmployee1.TeleNumber = ((long)(0));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label21.ForeColor = System.Drawing.Color.Transparent;
+            this.label21.Location = new System.Drawing.Point(645, 193);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(82, 17);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "Department";
             // 
-            // txtEDateJoined
+            // label22
             // 
-            this.txtEDateJoined.Enabled = false;
-            this.txtEDateJoined.Location = new System.Drawing.Point(645, 263);
-            this.txtEDateJoined.Name = "txtEDateJoined";
-            this.txtEDateJoined.Size = new System.Drawing.Size(150, 20);
-            this.txtEDateJoined.TabIndex = 30;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label22.ForeColor = System.Drawing.Color.Transparent;
+            this.label22.Location = new System.Drawing.Point(645, 242);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(37, 17);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "Role";
             // 
-            // label17
+            // cbxEDept
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label17.ForeColor = System.Drawing.SystemColors.Control;
-            this.label17.Location = new System.Drawing.Point(645, 242);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 17);
-            this.label17.TabIndex = 31;
-            this.label17.Text = "Date Joined";
+            this.cbxEDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEDept.FormattingEnabled = true;
+            this.cbxEDept.Location = new System.Drawing.Point(645, 215);
+            this.cbxEDept.Name = "cbxEDept";
+            this.cbxEDept.Size = new System.Drawing.Size(121, 21);
+            this.cbxEDept.TabIndex = 40;
             // 
-            // txtEPassword
+            // cbxERole
             // 
-            this.txtEPassword.Enabled = false;
-            this.txtEPassword.Location = new System.Drawing.Point(645, 214);
-            this.txtEPassword.Name = "txtEPassword";
-            this.txtEPassword.Size = new System.Drawing.Size(150, 20);
-            this.txtEPassword.TabIndex = 32;
+            this.cbxERole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxERole.FormattingEnabled = true;
+            this.cbxERole.Location = new System.Drawing.Point(645, 264);
+            this.cbxERole.Name = "cbxERole";
+            this.cbxERole.Size = new System.Drawing.Size(121, 21);
+            this.cbxERole.TabIndex = 40;
             // 
-            // label18
+            // chbxDetails
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label18.ForeColor = System.Drawing.SystemColors.Control;
-            this.label18.Location = new System.Drawing.Point(645, 193);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(69, 17);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Password";
+            this.chbxDetails.AutoSize = true;
+            this.chbxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chbxDetails.ForeColor = System.Drawing.Color.White;
+            this.chbxDetails.Location = new System.Drawing.Point(645, 164);
+            this.chbxDetails.Name = "chbxDetails";
+            this.chbxDetails.Size = new System.Drawing.Size(131, 21);
+            this.chbxDetails.TabIndex = 42;
+            this.chbxDetails.Text = "Sensitive Details";
+            this.chbxDetails.UseVisualStyleBackColor = true;
+            this.chbxDetails.CheckedChanged += new System.EventHandler(this.ChbxDetails_CheckedChanged);
             // 
             // ManageForm
             // 
@@ -772,5 +829,10 @@
         private System.Windows.Forms.TextBox txtEPassword;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtEDateJoined;
+        private System.Windows.Forms.CheckBox chbxDetails;
+        private System.Windows.Forms.ComboBox cbxERole;
+        private System.Windows.Forms.ComboBox cbxEDept;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }

@@ -10,11 +10,7 @@ namespace Component_A_ClassLibrary
 {
     public partial class CreateEmployee : Component
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
-
-        private string fName;
-        private string lName;
-        private long teleNumber;
+        private readonly DataClasses1DataContext db = new DataClasses1DataContext();
 
         public CreateEmployee()
         {
@@ -24,45 +20,25 @@ namespace Component_A_ClassLibrary
         public CreateEmployee(IContainer container)
         {
             container.Add(this);
-
             InitializeComponent();
         }
 
-        public string FName { get => fName; set => fName = value; }
-        public string LName { get => lName; set => lName = value; }
-        public long TeleNumber { get => teleNumber; set => teleNumber = value; }
-        
-        //enum roletype {Head, DeputyHead, Manager, Apprentice, JuniorMember, SeniorMember }
-        //enum departType {Engineering, Plumbing, Roofing, Carpentry, Bricklaying, Office }
-
-        
       public void AddToDB(TextBox firstNa, TextBox lastNa, TextBox telnumber,TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode, ComboBox typeDept, ComboBox typeRole)
         {
             try
             {
-                //look up employee on database with matching ID to query
-                //based on employee.id
                 // Query to find matching staffid and password in DB
                 var verQuery = from a in db.employees
                                where a.FirstName == firstNa.Text  && a.LastName == lastNa.Text
                                select a;
-                
-                Console.WriteLine("Query successfully");
 
                 if (verQuery.Any())
                 {
-                    firstNa.Text = String.Empty;
-                    lastNa.Text = String.Empty;
-                    telnumber.Text = String.Empty;
-                    email.Text = String.Empty;
-                    street.Text = String.Empty;
-                    city.Text = String.Empty;
-                    county.Text = String.Empty;
-                    postcode.Text = String.Empty;
                     MessageBox.Show("Employee Already Exists In DB");
                 }
                 else
                 {
+                    // Create a new employlee object
                     employee addedEmployee = new employee();
                     addedEmployee.FirstName = firstNa.Text;
                     addedEmployee.LastName = lastNa.Text;
@@ -74,7 +50,7 @@ namespace Component_A_ClassLibrary
                     addedEmployee.StaffID = IDcreation();
                     Console.WriteLine(" today date is " + DateTime.Today.Date);
 
-
+                    // Add the Dept and Role to the employee
                     role addedRole = new role();
                     addedRole.RoleType = typeRole.Text;
 
@@ -91,28 +67,19 @@ namespace Component_A_ClassLibrary
                     db.SubmitChanges();
 
                     MessageBox.Show("Employee Added To DB");
-
-                    firstNa.Text = String.Empty;
-                    lastNa.Text = String.Empty;
-                    telnumber.Text = String.Empty;
-                    email.Text = String.Empty;
-                    street.Text = String.Empty;
-                    city.Text = String.Empty;
-                    county.Text = String.Empty;
-                    postcode.Text = String.Empty;
                 }
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                //Console.WriteLine(e);
-                MessageBox.Show($"{e}");
+                MessageBox.Show(ex.Message);
                 throw;
             }  
         }
 
         private long IDcreation()
         {
+            // Creates a 6 digit staffID number which has not been used before
             long verifiedID;
             Random random = new Random();
             verifiedID = random.Next(100000, 999999);

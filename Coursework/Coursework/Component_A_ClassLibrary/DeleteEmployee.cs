@@ -12,7 +12,7 @@ namespace Component_A_ClassLibrary
     
     public partial class DeleteEmployee : Component
     {
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        private readonly DataClasses1DataContext db = new DataClasses1DataContext();
 
         
         public DeleteEmployee()
@@ -65,51 +65,12 @@ namespace Component_A_ClassLibrary
                     throw;
                 }
 
-                //table.Refresh();
 
             }
                                                                                
         }
 
-        public void PopulateTxtBox(DataGridView table, DataGridViewCellEventArgs e, TextBox firstNa, TextBox lastNa,
-                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county,
-                                    TextBox postcode, TextBox password, TextBox dateJoined
-                                    )
-        {
 
-            table.CurrentRow.Selected = true;
-            firstNa.Text = table.Rows[e.RowIndex].Cells["FirstName"].FormattedValue.ToString();
-            lastNa.Text = table.Rows[e.RowIndex].Cells["LastName"].FormattedValue.ToString();
-            telnumber.Text = table.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
-            email.Text = table.Rows[e.RowIndex].Cells["EmailAddress"].FormattedValue.ToString();
-            street.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 0);
-            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1);
-            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2);
-            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3);
-            password.Text = table.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
-            dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
-
-        }
-
-        public string Split(string address, int index)
-        {
-            if (String.IsNullOrEmpty(address))
-            {
-
-            }
-            try
-            {
-                string[] words = address.Split('-');
-                return words[index];
-
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                Console.WriteLine(e);
-                throw e;
-            }
-            
-        }
 
 
     }
