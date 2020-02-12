@@ -55,6 +55,9 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.editPanel = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdID = new System.Windows.Forms.RadioButton();
+            this.rdName = new System.Windows.Forms.RadioButton();
             this.btnDeleteEmploy = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEditEmploy = new System.Windows.Forms.Button();
@@ -77,16 +80,17 @@
             this.txtEPost = new System.Windows.Forms.TextBox();
             this.txtEFirst = new System.Windows.Forms.TextBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdName = new System.Windows.Forms.RadioButton();
-            this.rdID = new System.Windows.Forms.RadioButton();
             this.createEmployee1 = new Component_A_ClassLibrary.CreateEmployee(this.components);
             this.editEmployee1 = new Component_A_ClassLibrary.EditEmployee(this.components);
             this.deleteEmployee1 = new Component_A_ClassLibrary.DeleteEmployee(this.components);
+            this.txtEDateJoined = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtEPassword = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.createPanel.SuspendLayout();
             this.editPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // createPanel
@@ -112,9 +116,9 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(12, 59);
+            this.createPanel.Location = new System.Drawing.Point(171, 99);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(753, 365);
+            this.createPanel.Size = new System.Drawing.Size(109, 72);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
@@ -364,8 +368,12 @@
             this.editPanel.Controls.Add(this.btnSearch);
             this.editPanel.Controls.Add(this.label9);
             this.editPanel.Controls.Add(this.txtECounty);
+            this.editPanel.Controls.Add(this.label18);
+            this.editPanel.Controls.Add(this.txtEPassword);
             this.editPanel.Controls.Add(this.label10);
+            this.editPanel.Controls.Add(this.label17);
             this.editPanel.Controls.Add(this.txtEStreet);
+            this.editPanel.Controls.Add(this.txtEDateJoined);
             this.editPanel.Controls.Add(this.label11);
             this.editPanel.Controls.Add(this.txtECity);
             this.editPanel.Controls.Add(this.label12);
@@ -378,15 +386,53 @@
             this.editPanel.Controls.Add(this.txtELast);
             this.editPanel.Controls.Add(this.txtEPost);
             this.editPanel.Controls.Add(this.txtEFirst);
-            this.editPanel.Location = new System.Drawing.Point(673, 43);
+            this.editPanel.Location = new System.Drawing.Point(493, 99);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(167, 88);
+            this.editPanel.Size = new System.Drawing.Size(123, 93);
             this.editPanel.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdID);
+            this.groupBox1.Controls.Add(this.rdName);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(570, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(168, 36);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            // 
+            // rdID
+            // 
+            this.rdID.AutoSize = true;
+            this.rdID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdID.ForeColor = System.Drawing.Color.White;
+            this.rdID.Location = new System.Drawing.Point(92, 11);
+            this.rdID.Name = "rdID";
+            this.rdID.Size = new System.Drawing.Size(39, 20);
+            this.rdID.TabIndex = 1;
+            this.rdID.TabStop = true;
+            this.rdID.Text = "ID";
+            this.rdID.UseVisualStyleBackColor = true;
+            // 
+            // rdName
+            // 
+            this.rdName.AutoSize = true;
+            this.rdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdName.ForeColor = System.Drawing.Color.White;
+            this.rdName.Location = new System.Drawing.Point(9, 13);
+            this.rdName.Name = "rdName";
+            this.rdName.Size = new System.Drawing.Size(53, 17);
+            this.rdName.TabIndex = 0;
+            this.rdName.TabStop = true;
+            this.rdName.Text = "Name";
+            this.rdName.UseVisualStyleBackColor = true;
             // 
             // btnDeleteEmploy
             // 
             this.btnDeleteEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteEmploy.Location = new System.Drawing.Point(662, 281);
+            this.btnDeleteEmploy.Location = new System.Drawing.Point(662, 330);
             this.btnDeleteEmploy.Name = "btnDeleteEmploy";
             this.btnDeleteEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnDeleteEmploy.TabIndex = 39;
@@ -413,7 +459,7 @@
             // btnEditEmploy
             // 
             this.btnEditEmploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEmploy.Location = new System.Drawing.Point(662, 281);
+            this.btnEditEmploy.Location = new System.Drawing.Point(662, 330);
             this.btnEditEmploy.Name = "btnEditEmploy";
             this.btnEditEmploy.Size = new System.Drawing.Size(109, 37);
             this.btnEditEmploy.TabIndex = 39;
@@ -443,7 +489,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(371, 291);
+            this.label9.Location = new System.Drawing.Point(362, 291);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 17);
             this.label9.TabIndex = 35;
@@ -451,7 +497,7 @@
             // 
             // txtECounty
             // 
-            this.txtECounty.Location = new System.Drawing.Point(371, 312);
+            this.txtECounty.Location = new System.Drawing.Point(362, 312);
             this.txtECounty.Name = "txtECounty";
             this.txtECounty.Size = new System.Drawing.Size(150, 20);
             this.txtECounty.TabIndex = 34;
@@ -461,7 +507,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(371, 193);
+            this.label10.Location = new System.Drawing.Point(359, 193);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(105, 17);
             this.label10.TabIndex = 33;
@@ -469,7 +515,7 @@
             // 
             // txtEStreet
             // 
-            this.txtEStreet.Location = new System.Drawing.Point(371, 214);
+            this.txtEStreet.Location = new System.Drawing.Point(362, 214);
             this.txtEStreet.Name = "txtEStreet";
             this.txtEStreet.Size = new System.Drawing.Size(150, 20);
             this.txtEStreet.TabIndex = 32;
@@ -479,7 +525,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(371, 242);
+            this.label11.Location = new System.Drawing.Point(362, 242);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 17);
             this.label11.TabIndex = 31;
@@ -487,7 +533,7 @@
             // 
             // txtECity
             // 
-            this.txtECity.Location = new System.Drawing.Point(371, 263);
+            this.txtECity.Location = new System.Drawing.Point(362, 263);
             this.txtECity.Name = "txtECity";
             this.txtECity.Size = new System.Drawing.Size(150, 20);
             this.txtECity.TabIndex = 30;
@@ -497,7 +543,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(368, 340);
+            this.label12.Location = new System.Drawing.Point(359, 340);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 17);
             this.label12.TabIndex = 29;
@@ -570,7 +616,7 @@
             // 
             // txtEPost
             // 
-            this.txtEPost.Location = new System.Drawing.Point(371, 361);
+            this.txtEPost.Location = new System.Drawing.Point(362, 361);
             this.txtEPost.Name = "txtEPost";
             this.txtEPost.Size = new System.Drawing.Size(150, 20);
             this.txtEPost.TabIndex = 21;
@@ -596,49 +642,49 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rdID);
-            this.groupBox1.Controls.Add(this.rdName);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(570, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(168, 36);
-            this.groupBox1.TabIndex = 41;
-            this.groupBox1.TabStop = false;
-            // 
-            // rdName
-            // 
-            this.rdName.AutoSize = true;
-            this.rdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdName.ForeColor = System.Drawing.Color.White;
-            this.rdName.Location = new System.Drawing.Point(9, 13);
-            this.rdName.Name = "rdName";
-            this.rdName.Size = new System.Drawing.Size(53, 17);
-            this.rdName.TabIndex = 0;
-            this.rdName.TabStop = true;
-            this.rdName.Text = "Name";
-            this.rdName.UseVisualStyleBackColor = true;
-            // 
-            // rdID
-            // 
-            this.rdID.AutoSize = true;
-            this.rdID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdID.ForeColor = System.Drawing.Color.White;
-            this.rdID.Location = new System.Drawing.Point(92, 11);
-            this.rdID.Name = "rdID";
-            this.rdID.Size = new System.Drawing.Size(39, 20);
-            this.rdID.TabIndex = 1;
-            this.rdID.TabStop = true;
-            this.rdID.Text = "ID";
-            this.rdID.UseVisualStyleBackColor = true;
-            // 
             // createEmployee1
             // 
             this.createEmployee1.FName = null;
             this.createEmployee1.LName = null;
             this.createEmployee1.TeleNumber = ((long)(0));
+            // 
+            // txtEDateJoined
+            // 
+            this.txtEDateJoined.Enabled = false;
+            this.txtEDateJoined.Location = new System.Drawing.Point(645, 263);
+            this.txtEDateJoined.Name = "txtEDateJoined";
+            this.txtEDateJoined.Size = new System.Drawing.Size(150, 20);
+            this.txtEDateJoined.TabIndex = 30;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label17.ForeColor = System.Drawing.SystemColors.Control;
+            this.label17.Location = new System.Drawing.Point(645, 242);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(84, 17);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Date Joined";
+            // 
+            // txtEPassword
+            // 
+            this.txtEPassword.Enabled = false;
+            this.txtEPassword.Location = new System.Drawing.Point(645, 214);
+            this.txtEPassword.Name = "txtEPassword";
+            this.txtEPassword.Size = new System.Drawing.Size(150, 20);
+            this.txtEPassword.TabIndex = 32;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label18.ForeColor = System.Drawing.SystemColors.Control;
+            this.label18.Location = new System.Drawing.Point(645, 193);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(69, 17);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Password";
             // 
             // ManageForm
             // 
@@ -659,9 +705,9 @@
             this.createPanel.PerformLayout();
             this.editPanel.ResumeLayout(false);
             this.editPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -722,5 +768,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdID;
         private System.Windows.Forms.RadioButton rdName;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtEPassword;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtEDateJoined;
     }
 }

@@ -14,8 +14,7 @@ namespace Component_A_ClassLibrary
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
 
-
-
+        
         public DeleteEmployee()
         {
             InitializeComponent();
@@ -39,10 +38,14 @@ namespace Component_A_ClassLibrary
                 try
                 {
                     var varQueryDelete = (from a in db.employees
-                                      where a.EmployeeID == Convert.ToInt64(deletedID)
-                                      select a).Single();                   
+                                          where a.EmployeeID == Convert.ToInt64(deletedID)
+                                          select a);
 
-                    db.employees.DeleteOnSubmit(varQueryDelete);
+                    var company = db.employees.FirstOrDefault(c => c.EmployeeID == Convert.ToInt64(deletedID));
+
+
+
+                    db.employees.DeleteOnSubmit(company);
 
                 }
                 catch (Exception e)
@@ -62,14 +65,15 @@ namespace Component_A_ClassLibrary
                     throw;
                 }
 
-                table.Refresh();
+                //table.Refresh();
 
             }
                                                                                
         }
 
         public void PopulateTxtBox(DataGridView table, DataGridViewCellEventArgs e, TextBox firstNa, TextBox lastNa,
-                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode
+                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county,
+                                    TextBox postcode, TextBox password, TextBox dateJoined
                                     )
         {
 
@@ -79,9 +83,11 @@ namespace Component_A_ClassLibrary
             telnumber.Text = table.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
             email.Text = table.Rows[e.RowIndex].Cells["EmailAddress"].FormattedValue.ToString();
             street.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 0);
-            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1); ;
-            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2); ;
-            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3); ;
+            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1);
+            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2);
+            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3);
+            password.Text = table.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
+            dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
 
         }
 

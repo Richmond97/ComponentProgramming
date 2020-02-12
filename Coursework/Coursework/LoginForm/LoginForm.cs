@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,16 +20,23 @@ namespace LoginForm
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            // Sets the ID and Password to the component
             loginComponent1.StaffID = Int32.Parse(staffID.Text);
-            loginComponent1.Password = password.Text;
+            loginComponent1.Password = password.Text;            
 
-            if (loginComponent1.Verification())
+            // Verification based on the admin desktop application
+            if (loginComponent1.Verification("Admin"))
             {
-                this.Hide();
+                Hide();
                 ManageForm manage = ManageForm.Instance;                
                 manage.Show();
-
             }        
+        }
+
+        private void StaffID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Onlu allows the keyboard to enter in numbers  
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);            
         }
     }
 }

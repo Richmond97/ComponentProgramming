@@ -105,9 +105,12 @@
             // staffID
             // 
             this.staffID.Location = new System.Drawing.Point(212, 206);
+            this.staffID.MaxLength = 6;
             this.staffID.Name = "staffID";
+            this.staffID.ShortcutsEnabled = false;
             this.staffID.Size = new System.Drawing.Size(159, 20);
             this.staffID.TabIndex = 0;
+            this.staffID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StaffID_KeyPress);
             // 
             // loginComponent1
             // 

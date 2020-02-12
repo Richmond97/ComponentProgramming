@@ -98,7 +98,6 @@ namespace LoginForm
 
         }
 
-
         private void BtnCreateEmploy_Click(object sender, EventArgs e)
         {
             createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode, cbxDept, cbxRole);
@@ -112,17 +111,32 @@ namespace LoginForm
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
         {
             deleteEmployee1.DeleteStaff(dataGridView1);
+            dataGridView1.Update();
+            dataGridView1.Refresh();
 
-            editEmployee1.searchEmployee(dataGridView1, txtSearch, rdID, rdName);
+            //editEmployee1.searchEmployee(dataGridView1, txtSearch, rdID, rdName);
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value!= null)
-            {                
-                PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
+            try
+            {
+                // ignore header row and any column
+                if (e.RowIndex == -1)  
+                {
+                    return;
+                }
+                else if (dataGridView1.CurrentCell.Value != null)
+                {
+                    PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost, txtEPassword, txtEDateJoined);
+                }
+                editPanel.Update();
             }
-            editPanel.Update();
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex);
+                throw new ArgumentOutOfRangeException("Index parameter is out of range.", ex);
+            }            
         }
 
         private void BtnEditEmploy_Click(object sender, EventArgs e)
@@ -152,7 +166,8 @@ namespace LoginForm
         }
 
         public void PopulateTxtBox(DataGridView table, DataGridViewCellEventArgs e, TextBox firstNa, TextBox lastNa,
-                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county, TextBox postcode
+                                    TextBox telnumber, TextBox email, TextBox street, TextBox city, TextBox county,
+                                    TextBox postcode, TextBox password, TextBox dateJoined
                                     )
         {
 
@@ -162,25 +177,22 @@ namespace LoginForm
             telnumber.Text = table.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
             email.Text = table.Rows[e.RowIndex].Cells["EmailAddress"].FormattedValue.ToString();
             street.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 0);
-            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1); ;
-            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2); ;
-            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3); ;
+            city.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 1);
+            county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2);
+            postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3);
+            password.Text = table.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
+            dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
 
         }
 
         public string Split(string address, int index)
         {
-            if (String.IsNullOrEmpty(address))
-            {
-
-            }
             try
             {
                 string[] words = address.Split('-');
                 return words[index];
-
             }
-            catch (IndexOutOfRangeException e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 throw e;

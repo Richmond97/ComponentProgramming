@@ -16,10 +16,8 @@ namespace Component_A_ClassLibrary
         private string password = "";
 
         // Connection to the DataBase and access to entity classes
-        DataClasses1DataContext db = new DataClasses1DataContext();
+        private readonly DataClasses1DataContext db = new DataClasses1DataContext();      
         
-
-
         public LoginComponent()
         {
             InitializeComponent();
@@ -35,102 +33,98 @@ namespace Component_A_ClassLibrary
         public int StaffID { get => staffID; set => staffID = value; }
         public string Password { get => password; set => password = value; }
 
-
-        // Verification Method for both Admin and Staff
-        public bool Verification()
+        public bool Verification(string employeeLevel)
         {
             long someQuery;
             try
-            {   
-                Console.WriteLine(db.Connection);
-
+            {
                 // Query to find matching staffid and password in DB
                 var verQuery = from a in db.employees
                                where a.StaffID == StaffID && a.Password == Password
-                               select a.EmployeeID;
-                              
+                               select a.EmployeeID;                              
 
                 var quer = verQuery.ToList();
                 someQuery = quer.ElementAtOrDefault(0);
 
-                Console.WriteLine("Query successfully");
-
                 if (verQuery.Any())
                 {
-                    // If any query has an object call auth method
+                    // If user entered details correctly call auth method
                     Console.WriteLine("User Exists in DB");
-                    return Authentication(someQuery);              
+                    return Authentication(someQuery, employeeLevel);              
                 }
                 else
                 {
-                    // Else check the staffid exists
-                    var userQuery = (from b in db.employees
+                    // Check the Staffid exists
+                    var userQuery = from b in db.employees
                                      where b.StaffID == StaffID
-                                     select b);
-                    //Console.WriteLine(db.GetCommand(userQuery).CommandText);
+                                     select b;
 
                     if (userQuery.Any())
                     {
                         Console.WriteLine("User Exists in DB, Wrong Password");
-                        //popup box
-                        MessageBox.Show("User Exists in DB, Wrong Password");
+                        MessageBox.Show("Password Incorrect");
                         return false;
                     }
                     else
                     {
-                        Console.WriteLine("User Does Not Exist, Please contact Admin");
-                        //pop up box
+                        Console.WriteLine("User Does Not Exist in DB");
                         MessageBox.Show("User Does Not Exist, Please contact Admin");
                         return false;
                     }
                 }
-
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e);
-                //pop up box
-                MessageBox.Show($"{e}");
-                throw;
-            }               
-
+                MessageBox.Show(ex.Message);
+                throw ex;
+            }  
         }
 
-        public bool Authentication(long employID)
+        public bool Authentication(long employID, string employeeLevel)
         {
+            // Checks the user has the right level for log in
             try
             {
-                //DataClasses1DataContext db = new DataClasses1DataContext();
-
                 var joinQuery = from r in db.roles
                                 where r.employee.EmployeeID == employID
                                 select r;
-                Console.WriteLine(db.GetCommand(joinQuery).CommandText);
 
                 var singleQuery = joinQuery.Single();
 
-                if (singleQuery.RoleType == "Admin")
+                // For the admin desktop application
+                if (singleQuery.RoleType == "Admin" && employeeLevel.Equals("Admin"))
                 {
-                    MessageBox.Show("Admin has logged in successfully");
+                    MessageBox.Show("Admin logged in successfully");
                     
                     return true;
                 }
-                else
+                else if (singleQuery.RoleType != "Admin" && employeeLevel.Equals("Admin"))
                 {
                     MessageBox.Show("Unauthorised Access Denied");
                     return false;
                 }
+                // For the Staff Web App
+                else if (singleQuery.RoleType == "Admin" && employeeLevel != "Admin" )
+                {
+                    MessageBox.Show("Please Use the Admin Application");
 
+                    return false;
+                }
+                else //if (singleQuery.RoleType != "Admin" && employeeLevel.Equals("Admin"))
+                {
+                    MessageBox.Show("Staff logged in successfully");
+                    return true;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
-            }        
-
-
-            
+                MessageBox.Show(ex.Message);
+                throw ex;
+            }    
         }
+
+
+
 
     }
 }
