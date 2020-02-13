@@ -142,16 +142,17 @@ namespace LoginForm
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
         {
             deleteEmployee1.DeleteStaff(dataGridView1);
-            dataGridView1.CurrentRow.Selected = false;
+            dataGridView1.CurrentRow.Selected = false;            
 
             ClearFields();
-            RefreshGrid();
+            RefreshGrid();            
             SwitchButtons();
+            editPanel.Update();
         }              
 
         private void BtnEditEmploy_Click(object sender, EventArgs e)
         {
-            editEmployee1.EditDetails(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost);
+            editEmployee1.EditDetails(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost, cbxEDept, cbxERole);
             dataGridView1.CurrentRow.Selected = false;
 
             ClearFields();

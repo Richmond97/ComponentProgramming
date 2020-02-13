@@ -17,10 +17,7 @@ namespace Component_A_ClassLibrary
 
         public EditEmployee()
         {
-            InitializeComponent();
-            db.Log = Console.Out;
-            DataLoadOptions Load = new DataLoadOptions();
-            Load.LoadWith<employee>(d => d.departments);
+            InitializeComponent();            
         }
 
         public EditEmployee(IContainer container)
@@ -37,10 +34,10 @@ namespace Component_A_ClassLibrary
                 // Search based on whether the name radio button has been selected  
                 if (searchName.Checked)
                 {
-                   var  varQueryName =   (from a in db.employees
-                                      where String.IsNullOrWhiteSpace(searchQ.Text) && a.FirstName != "admin"
-                                      || a.FirstName.Contains(searchQ.Text.Trim()) && a.FirstName != "admin"
-                                          select a).ToList();
+                    var varQueryName = (from a in db.employees
+                                        where String.IsNullOrWhiteSpace(searchQ.Text) && a.FirstName != "admin"
+                                        || a.FirstName.Contains(searchQ.Text.Trim()) && a.FirstName != "admin"
+                                        select a).ToList();
 
                     table.DataSource = varQueryName;
                 }
@@ -71,7 +68,8 @@ namespace Component_A_ClassLibrary
 
         public void EditDetails(DataGridView table, TextBox firstNa, TextBox lastNa,
                                 TextBox telnumber, TextBox email, TextBox street, 
-                                TextBox city, TextBox county, TextBox postcode
+                                TextBox city, TextBox county, TextBox postcode,
+                                ComboBox dept, ComboBox roletext
                                     )
         {
             // Change details for a selected emolyee
@@ -93,28 +91,28 @@ namespace Component_A_ClassLibrary
                         field.Telephone = telnumber.Text;
                         field.EmailAddress = email.Text;
                         field.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
-                        Console.WriteLine(field.departments.HasLoadedOrAssignedValues);
+
+                        field.departments.Remove(field.departments.First());
+                        department addedDept = new department();
+                        addedDept.DeptName = dept.Text;
+                        field.departments.Add(addedDept);
+
+                        field.roles.Remove(field.roles.First());
+                        role addedRole = new role();
+                        addedRole.RoleType = roletext.Text;
+                        field.roles.Add(addedRole);                                                                                          
+
                     }
 
                     db.SubmitChanges();
 
-                    //firstNa.Text = "";
-                    //lastNa.Text = "";
-                    //telnumber.Text = "";
-                    //email.Text = "";
-                    //street.Text = "";
-                    //city.Text = "";
-                    //county.Text = "";
-                    //postcode.Text = "";
-
-                    //table.CurrentRow.Selected = false;
                 }
                
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show($"{e}");
+                MessageBox.Show(ex.Message);
                 throw;
             }
                                   

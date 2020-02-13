@@ -30,10 +30,6 @@ namespace Component_A_ClassLibrary
 
         public void DeleteStaff(DataGridView table)
         {
-            db.Log = Console.Out;
-            DataLoadOptions Load = new DataLoadOptions();
-            Load.LoadWith<employee>(d => d.departments);
-
             if (table.SelectedRows.Count > 0)
             {
                 string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
@@ -46,25 +42,14 @@ namespace Component_A_ClassLibrary
 
                     var company = db.employees.FirstOrDefault(c => c.EmployeeID == Convert.ToInt64(deletedID));
 
-
-
                     db.employees.DeleteOnSubmit(company);
+
+                    db.SubmitChanges();
 
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show($"{e}"); 
-                    throw;
-                }
-
-                try
-                {
-                    db.SubmitChanges();
-
-                }
-                catch (Exception)
-                {
-
                     throw;
                 }
 
