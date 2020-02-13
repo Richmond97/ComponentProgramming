@@ -33,10 +33,17 @@ namespace LoginForm
             }        
         }
 
+        private void Lbl_Close(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void StaffID_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Onlu allows the keyboard to enter in numbers  
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);            
         }
+
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Linq;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,9 @@ namespace Component_A_ClassLibrary
 
         public void DeleteStaff(DataGridView table)
         {
-            //string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
+            db.Log = Console.Out;
+            DataLoadOptions Load = new DataLoadOptions();
+            Load.LoadWith<employee>(d => d.departments);
 
             if (table.SelectedRows.Count > 0)
             {

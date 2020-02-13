@@ -32,6 +32,7 @@
             this.LoginPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.LoginPanel.BackColor = System.Drawing.Color.Plum;
             this.LoginPanel.Controls.Add(this.label2);
             this.LoginPanel.Controls.Add(this.label1);
+            this.LoginPanel.Controls.Add(this.label3);
             this.LoginPanel.Controls.Add(this.Title);
             this.LoginPanel.Controls.Add(this.btnLogin);
             this.LoginPanel.Controls.Add(this.password);
@@ -72,6 +74,18 @@
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Staff ID : ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(512, 412);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 18);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Close";
+            this.label3.Click += new System.EventHandler(this.Lbl_Close);
             // 
             // Title
             // 
@@ -123,6 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 439);
             this.Controls.Add(this.LoginPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -142,6 +157,7 @@
         private Component_A_ClassLibrary.LoginComponent loginComponent1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

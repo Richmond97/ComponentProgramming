@@ -48,13 +48,18 @@ namespace LoginForm
             createPanel.Size = new Size(851, 443);
             editPanel.Size = new Size(851, 443);
 
+            // Set search to by name
             rdName.Checked = true;
 
+            // Make combobox hold values of relevant enums
             cbxDept.DataSource = Enum.GetValues(typeof(DepartmentType));
             cbxEDept.DataSource = Enum.GetValues(typeof(DepartmentType));
 
             cbxRole.DataSource = Enum.GetValues(typeof(Roletype));
             cbxERole.DataSource = Enum.GetValues(typeof(Roletype));
+
+            // Only allow delete/edit when an emply has been selected
+            SwitchButtons();
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
@@ -95,10 +100,30 @@ namespace LoginForm
             btnEditEmploy.Hide();
             btnDeleteEmploy.Show();
         }
+               
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            if ((MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginForm login = new LoginForm();
+                login.Show();
+
+            }
+        }
+
+        #endregion
+
+
+
+        #region Action Button Functions
 
         private void BtnCreateEmploy_Click(object sender, EventArgs e)
         {
+            // Add to DB
             createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode, cbxDept, cbxRole);
+
+            // Clear fields to enter another employee
             txtName.Text = String.Empty;
             txtSurname.Text = String.Empty;
             txtNumber.Text = String.Empty;
@@ -109,29 +134,6 @@ namespace LoginForm
             txtPostcode.Text = String.Empty;
         }
 
-        private void BtnLogout_Click(object sender, EventArgs e)
-        {
-
-            // DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question;
-
-            if ((MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
-            {
-                this.Hide();
-                LoginForm login = new LoginForm();
-                login.Show();
-
-            }
-
-            //DialogResult dialogResult = MessageBox.Show("Log Out", "Please Confirm Your Action", MessageBoxButtons., MessageBoxIcon.Question);
-
-
-        }
-
-        #endregion
-
-
-
-        #region Action Button Functions
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             editEmployee1.SearchEmployee(dataGridView1, txtSearch,rdName);
@@ -140,8 +142,11 @@ namespace LoginForm
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
         {
             deleteEmployee1.DeleteStaff(dataGridView1);
+            dataGridView1.CurrentRow.Selected = false;
 
+            ClearFields();
             RefreshGrid();
+            SwitchButtons();
         }              
 
         private void BtnEditEmploy_Click(object sender, EventArgs e)
@@ -150,9 +155,8 @@ namespace LoginForm
             dataGridView1.CurrentRow.Selected = false;
 
             ClearFields();
-
-
             RefreshGrid();
+            SwitchButtons();
         }
                 
 
@@ -173,7 +177,6 @@ namespace LoginForm
                 {
                     PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost,cbxEDept, cbxERole, txtEPassword, txtEDateJoined);
                 }
-                editPanel.Update();
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -188,7 +191,9 @@ namespace LoginForm
                                     )
         {
 
-            table.CurrentRow.Selected = true;
+            table.CurrentRow.Selected = true;           
+
+
             firstNa.Text = table.Rows[e.RowIndex].Cells["FirstName"].FormattedValue.ToString();
             lastNa.Text = table.Rows[e.RowIndex].Cells["LastName"].FormattedValue.ToString();
             telnumber.Text = table.Rows[e.RowIndex].Cells["Telephone"].FormattedValue.ToString();
@@ -208,10 +213,13 @@ namespace LoginForm
             password.Text = table.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
             dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
 
+            btnEditEmploy.Enabled = true;
+            btnDeleteEmploy.Enabled = true;
         }
 
         public string Split(string address, int index)
         {
+            // Fomrat the address string into an array
             try
             {
                 string[] words = address.Split('-');
@@ -227,6 +235,7 @@ namespace LoginForm
 
         public void ClearFields()
         {
+            // Clear Edit Panel fields
             txtEFirst.Text = String.Empty;
             txtELast.Text = String.Empty;
             txtETele.Text = String.Empty;
@@ -245,19 +254,45 @@ namespace LoginForm
             dataGridView1.Refresh();
         }
 
+        public void SwitchButtons()
+        {
+            if (btnDeleteEmploy.Enabled == true)
+            {
+                btnEditEmploy.Enabled = false;
+                btnDeleteEmploy.Enabled = false;
+            }
+            else
+            {
+                btnEditEmploy.Enabled = true;
+                btnDeleteEmploy.Enabled = true;
+            }
+        }
+
         private void ChbxDetails_CheckedChanged(object sender, EventArgs e)
         {
             if (chbxDetails.Checked)
             {
                 cbxEDept.Enabled = true;
+                cbxEDept.ForeColor = Color.Red;
+                label21.ForeColor = Color.Red;
                 cbxERole.Enabled = true;
+                cbxERole.ForeColor = Color.Red;
+                label22.ForeColor = Color.Red;
                 txtEPassword.Enabled = true;
+                txtEPassword.ForeColor = Color.Red;
+                label18.ForeColor = Color.Red;
             }
             else
             {
                 cbxEDept.Enabled = false;
+                cbxEDept.ForeColor = Color.Black;
+                label21.ForeColor = Color.White;
                 cbxERole.Enabled = false;
+                cbxERole.ForeColor = Color.Black;
+                label22.ForeColor = Color.White;
                 txtEPassword.Enabled = false;
+                txtEPassword.ForeColor = Color.Black;
+                label18.ForeColor = Color.White;
             }
         }
     }

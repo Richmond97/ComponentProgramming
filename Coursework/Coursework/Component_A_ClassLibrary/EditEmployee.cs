@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Linq;
+
 namespace Component_A_ClassLibrary
 {
     public partial class EditEmployee : Component 
@@ -16,6 +18,9 @@ namespace Component_A_ClassLibrary
         public EditEmployee()
         {
             InitializeComponent();
+            db.Log = Console.Out;
+            DataLoadOptions Load = new DataLoadOptions();
+            Load.LoadWith<employee>(d => d.departments);
         }
 
         public EditEmployee(IContainer container)
@@ -88,6 +93,7 @@ namespace Component_A_ClassLibrary
                         field.Telephone = telnumber.Text;
                         field.EmailAddress = email.Text;
                         field.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
+                        Console.WriteLine(field.departments.HasLoadedOrAssignedValues);
                     }
 
                     db.SubmitChanges();
