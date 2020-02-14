@@ -127,9 +127,9 @@
             this.createPanel.Controls.Add(this.txtSurname);
             this.createPanel.Controls.Add(this.txtPostcode);
             this.createPanel.Controls.Add(this.txtName);
-            this.createPanel.Location = new System.Drawing.Point(91, 79);
+            this.createPanel.Location = new System.Drawing.Point(22, 457);
             this.createPanel.Name = "createPanel";
-            this.createPanel.Size = new System.Drawing.Size(77, 69);
+            this.createPanel.Size = new System.Drawing.Size(86, 52);
             this.createPanel.TabIndex = 0;
             // 
             // cbxRole
@@ -435,9 +435,9 @@
             this.editPanel.Controls.Add(this.txtELast);
             this.editPanel.Controls.Add(this.txtEPost);
             this.editPanel.Controls.Add(this.txtEFirst);
-            this.editPanel.Location = new System.Drawing.Point(309, 79);
+            this.editPanel.Location = new System.Drawing.Point(72, 70);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(93, 61);
+            this.editPanel.Size = new System.Drawing.Size(95, 56);
             this.editPanel.TabIndex = 4;
             // 
             // chbxDetails

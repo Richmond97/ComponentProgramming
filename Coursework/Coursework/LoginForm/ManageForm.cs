@@ -120,18 +120,24 @@ namespace LoginForm
 
         private void BtnCreateEmploy_Click(object sender, EventArgs e)
         {
-            // Add to DB
-            createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode, cbxDept, cbxRole);
+            if (!FieldsEntered(createPanel))
+            {
+                MessageBox.Show("Please Enter All Fields");
+            }
+            else if (!createEmployee1.ValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Invalid Email");
+            }
+            else
+            {
+                // Add to DB
+                createEmployee1.AddToDB(txtName, txtSurname, txtNumber, txtEmail, txtStreet, txtCity, txtCounty, txtPostcode, cbxDept, cbxRole);
 
-            // Clear fields to enter another employee
-            txtName.Text = String.Empty;
-            txtSurname.Text = String.Empty;
-            txtNumber.Text = String.Empty;
-            txtEmail.Text = String.Empty;
-            txtStreet.Text = String.Empty;
-            txtCity.Text = String.Empty;
-            txtCounty.Text = String.Empty;
-            txtPostcode.Text = String.Empty;
+                // Clear fields to enter another employee
+                ClearFields(createPanel);
+
+            } 
+
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -144,7 +150,7 @@ namespace LoginForm
             deleteEmployee1.DeleteStaff(dataGridView1);
             dataGridView1.CurrentRow.Selected = false;            
 
-            ClearFields();
+            ClearFields(editPanel);
             RefreshGrid();            
             SwitchButtons();
             editPanel.Update();
@@ -155,7 +161,7 @@ namespace LoginForm
             editEmployee1.EditDetails(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost, cbxEDept, cbxERole);
             dataGridView1.CurrentRow.Selected = false;
 
-            ClearFields();
+            ClearFields(editPanel);
             RefreshGrid();
             SwitchButtons();
         }
@@ -215,7 +221,9 @@ namespace LoginForm
             dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
 
             btnEditEmploy.Enabled = true;
+            btnEditEmploy.BackColor = Color.White;
             btnDeleteEmploy.Enabled = true;
+            btnDeleteEmploy.BackColor = Color.White;
         }
 
         public string Split(string address, int index)
@@ -234,19 +242,16 @@ namespace LoginForm
 
         }
 
-        public void ClearFields()
+        public void ClearFields(Panel panel)
         {
-            // Clear Edit Panel fields
-            txtEFirst.Text = String.Empty;
-            txtELast.Text = String.Empty;
-            txtETele.Text = String.Empty;
-            txtEEmail.Text = String.Empty;
-            txtEStreet.Text = String.Empty;
-            txtECity.Text = String.Empty;
-            txtECounty.Text = String.Empty;
-            txtEPost.Text = String.Empty;
-            txtEPassword.Text = String.Empty;
-            txtEDateJoined.Text = String.Empty;
+            // Clear Panel fields
+            foreach (Control x in panel.Controls)
+            {
+                if (x is TextBox)
+                {
+                    ((TextBox)x).Text = String.Empty;
+                }
+            }
         }
 
         public void RefreshGrid()
@@ -260,12 +265,16 @@ namespace LoginForm
             if (btnDeleteEmploy.Enabled == true)
             {
                 btnEditEmploy.Enabled = false;
+                btnEditEmploy.BackColor = Color.DarkGray;
                 btnDeleteEmploy.Enabled = false;
+                btnDeleteEmploy.BackColor = Color.DarkGray;
             }
             else
             {
                 btnEditEmploy.Enabled = true;
+                btnEditEmploy.BackColor = Color.White;
                 btnDeleteEmploy.Enabled = true;
+                btnDeleteEmploy.BackColor = Color.White;
             }
         }
 
@@ -295,6 +304,23 @@ namespace LoginForm
                 txtEPassword.ForeColor = Color.Black;
                 label18.ForeColor = Color.White;
             }
+        }
+
+        private bool FieldsEntered(Panel createPanel)
+        {
+            bool correctFields = true;
+            foreach (Control x in createPanel.Controls)
+            {
+                if (x is TextBox && ((TextBox)x).Text == String.Empty)
+                {                   
+                    correctFields = false;
+                }
+                else
+                {
+                    correctFields = true;
+                }
+            }
+            return correctFields;
         }
     }
 }

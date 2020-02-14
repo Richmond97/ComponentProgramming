@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+
 namespace Component_A_ClassLibrary
 {
     public partial class CreateEmployee : Component
@@ -96,6 +98,21 @@ namespace Component_A_ClassLibrary
             return verifiedID;
         }
 
-        
+         public bool ValidEmail(string email)
+        {
+            try
+            {
+                MailAddress correctEmail = new MailAddress(email);
+                return correctEmail.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+
+
     }
 }

@@ -92,15 +92,15 @@ namespace Component_A_ClassLibrary
                         field.EmailAddress = email.Text;
                         field.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
 
-                        field.departments.Remove(field.departments.First());
-                        department addedDept = new department();
-                        addedDept.DeptName = dept.Text;
-                        field.departments.Add(addedDept);
+                        //field.departments.Remove(field.departments.First());
+                        //department addedDept = new department();
+                        //addedDept.DeptName = dept.Text;
+                        //field.departments.Add(addedDept);
 
-                        field.roles.Remove(field.roles.First());
-                        role addedRole = new role();
-                        addedRole.RoleType = roletext.Text;
-                        field.roles.Add(addedRole);                                                                                          
+                        //field.roles.Remove(field.roles.First());
+                        //role addedRole = new role();
+                        //addedRole.RoleType = roletext.Text;
+                        //field.roles.Add(addedRole);                                                                                          
 
                     }
 
