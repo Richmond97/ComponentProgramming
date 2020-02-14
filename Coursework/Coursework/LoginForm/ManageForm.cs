@@ -210,12 +210,8 @@ namespace LoginForm
             county.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 2);
             postcode.Text = Split(table.Rows[e.RowIndex].Cells["Address"].FormattedValue.ToString(), 3);
 
-
-
-            //dept.SelectedText = table.Rows[e.RowIndex].Cells["Department"].FormattedValue.ToString();
-            //role.SelectedText = table.Rows[e.RowIndex].Cells["Role"].FormattedValue.ToString();
-
-
+            dept.SelectedIndex = dept.FindString(table.Rows[e.RowIndex].Cells["Department"].FormattedValue.ToString());
+            role.SelectedIndex = role.FindString(table.Rows[e.RowIndex].Cells["Role"].FormattedValue.ToString());
 
             password.Text = table.Rows[e.RowIndex].Cells["Password"].FormattedValue.ToString();
             dateJoined.Text = table.Rows[e.RowIndex].Cells["DateJoined"].FormattedValue.ToString();
