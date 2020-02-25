@@ -142,7 +142,7 @@ namespace LoginForm
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            editEmployee1.SearchEmployee(dataGridView1, txtSearch,rdName);
+            //editEmployee1.SearchEmployee(dataGridView1, txtSearch,rdName);
         }
 
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)

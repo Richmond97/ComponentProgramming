@@ -41,29 +41,44 @@ namespace Component_A_ClassLibrary
                 else
                 {
                     // Create a new employlee object
-                    employee addedEmployee = new employee();
-                    addedEmployee.FirstName = firstNa.Text;
-                    addedEmployee.LastName = lastNa.Text;
-                    addedEmployee.Password = firstNa.Text;
-                    addedEmployee.Telephone = telnumber.Text;
-                    addedEmployee.EmailAddress = email.Text;
-                    addedEmployee.Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text);
-                    addedEmployee.DateJoined = DateTime.Today.Date;
-                    addedEmployee.StaffID = IDcreation();
+                    employee addedEmployee = new employee
+                    {
+                        FirstName = firstNa.Text,
+                        LastName = lastNa.Text,
+                        Password = firstNa.Text,
+                        Telephone = telnumber.Text,
+                        EmailAddress = email.Text,
+                        Address = (street.Text + "-" + city.Text + "-" + county.Text + "-" + postcode.Text),
+                        DateJoined = DateTime.Today.Date,
+                        StaffID = IDcreation()
+                    };
                     Console.WriteLine(" today date is " + DateTime.Today.Date);
 
                     // Add the Dept and Role to the employee
-                    role addedRole = new role();
-                    addedRole.RoleType = typeRole.Text;
 
                     department addedDept = new department();
                     addedDept.DeptName = typeDept.Text;
 
-                    addedEmployee.departments.Add(addedDept);
-                    addedEmployee.roles.Add(addedRole);
+
+                    role addedRole = new role
+                    {
+                        RoleType = typeRole.Text,
+                        employee = addedEmployee,
+                        department = addedDept                        
+                    };
+
+                    //addedDept.roles.Add(addedRole);              
+
+
+
+                    //addedEmployee.departments.Add(addedDept);
+                    //addedEmployee.roles.Add(addedRole);
 
                     //Add new Employee to database
-                    db.employees.InsertOnSubmit(addedEmployee);
+                    //db.employees.InsertOnSubmit(addedEmployee);
+                    db.roles.InsertOnSubmit(addedRole);
+
+
 
                     //Save changes to Database.
                     db.SubmitChanges();

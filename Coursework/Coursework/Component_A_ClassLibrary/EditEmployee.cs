@@ -28,75 +28,75 @@ namespace Component_A_ClassLibrary
             InitializeComponent();
         }
         
-        public void SearchEmployee(DataGridView table, TextBox searchQ, RadioButton searchName)
-        {
-            try
-            {
-                // Search based on whether the name radio button has been selected  
-                if (searchName.Checked)
-                {
-                    var varQueryName = (from a in db.employees
-                                        where String.IsNullOrWhiteSpace(searchQ.Text) && a.FirstName != "admin"
-                                        || a.FirstName.Contains(searchQ.Text.Trim()) && a.FirstName != "admin"
-                                        join b in db.departments on a.EmployeeID equals b.EmployeeID
-                                        join c in db.roles on a.EmployeeID equals c.EmployeeID
-                                        //select //a).ToList();
-                                        select new
-                                        {
-                                            a.StaffID,
-                                            a.FirstName,
-                                            a.LastName, 
-                                            Department = b.DeptName,
-                                            Role = c.RoleType,
-                                            a.DateJoined,
-                                            a.Password,
-                                            a.Address,
-                                            a.EmailAddress,
-                                            a.Telephone
-                                        }).ToList();
+        //public void SearchEmployee(DataGridView table, TextBox searchQ, RadioButton searchName)
+        //{
+        //    try
+        //    {
+        //        // Search based on whether the name radio button has been selected  
+        //        if (searchName.Checked)
+        //        {
+        //            var varQueryName = (from a in db.employees
+        //                                where String.IsNullOrWhiteSpace(searchQ.Text) && a.FirstName != "admin"
+        //                                || a.FirstName.Contains(searchQ.Text.Trim()) && a.FirstName != "admin"
+        //                                join b in db.departments on a.EmployeeID equals b.EmployeeID
+        //                                join c in db.roles on a.EmployeeID equals c.EmployeeID
+        //                                //select //a).ToList();
+        //                                select new
+        //                                {
+        //                                    a.StaffID,
+        //                                    a.FirstName,
+        //                                    a.LastName, 
+        //                                    Department = b.DeptName,
+        //                                    Role = c.RoleType,
+        //                                    a.DateJoined,
+        //                                    a.Password,
+        //                                    a.Address,
+        //                                    a.EmailAddress,
+        //                                    a.Telephone
+        //                                }).ToList();
 
-                    table.DataSource = varQueryName;
-                }
-                else
-                {
-                   var  varQueryID = (from a in db.employees
-                                      where String.IsNullOrWhiteSpace(searchQ.Text) && a.StaffID != 111111
-                                      || a.StaffID.ToString().Contains(searchQ.Text.Trim()) && a.StaffID != 111111
-                                      //select a).ToList();
-                                        join b in db.departments on a.EmployeeID equals b.EmployeeID
-                                        join c in db.roles on a.EmployeeID equals c.EmployeeID
-                                        //select //a).ToList();
-                                        select new
-                                        {
-                                            a.StaffID,
-                                            a.FirstName,
-                                            a.LastName,
-                                            Department = b.DeptName,
-                                            Role = c.RoleType,
-                                            a.DateJoined,
-                                            a.Password,
-                                            a.Address,
-                                            a.EmailAddress,
-                                            a.Telephone
-                                        }).ToList();
+        //            table.DataSource = varQueryName;
+        //        }
+        //        else
+        //        {
+        //           var  varQueryID = (from a in db.employees
+        //                              where String.IsNullOrWhiteSpace(searchQ.Text) && a.StaffID != 111111
+        //                              || a.StaffID.ToString().Contains(searchQ.Text.Trim()) && a.StaffID != 111111
+        //                              //select a).ToList();
+        //                                join b in db.departments on a.EmployeeID equals b.EmployeeID
+        //                                join c in db.roles on a.EmployeeID equals c.EmployeeID
+        //                                //select //a).ToList();
+        //                                select new
+        //                                {
+        //                                    a.StaffID,
+        //                                    a.FirstName,
+        //                                    a.LastName,
+        //                                    Department = b.DeptName,
+        //                                    Role = c.RoleType,
+        //                                    a.DateJoined,
+        //                                    a.Password,
+        //                                    a.Address,
+        //                                    a.EmailAddress,
+        //                                    a.Telephone
+        //                                }).ToList();
 
-                    table.DataSource = varQueryID;
-                }
-                // Remove unneeded columns 
-                //table.Columns["EmployeeID"].Visible = false;
-                table.Columns["Password"].Visible = false;
-                table.Columns["Address"].Visible = false;
-                table.Columns["EmailAddress"].Visible = false;
-                table.Columns["Telephone"].Visible = false;
-                table.Columns["Department"].Visible = false;
-                table.Columns["Role"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw ex;
-            }     
-        }
+        //            table.DataSource = varQueryID;
+        //        }
+        //        // Remove unneeded columns 
+        //        //table.Columns["EmployeeID"].Visible = false;
+        //        table.Columns["Password"].Visible = false;
+        //        table.Columns["Address"].Visible = false;
+        //        table.Columns["EmailAddress"].Visible = false;
+        //        table.Columns["Telephone"].Visible = false;
+        //        table.Columns["Department"].Visible = false;
+        //        table.Columns["Role"].Visible = false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        throw ex;
+        //    }     
+        //}
 
 
         public void EditDetails(DataGridView table, TextBox firstNa, TextBox lastNa,
@@ -136,9 +136,9 @@ namespace Component_A_ClassLibrary
 
 
 
-                var depRes = (from d in db.departments
-                              where d.EmployeeID == Convert.ToInt64(Selected)
-                              select d);
+                //var depRes = (from d in db.departments
+                //              where d.EmployeeID == Convert.ToInt64(Selected)
+                //              select d);
 
                 //save change to the database
                 if ((MessageBox.Show("Save changes", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == DialogResult.Yes)
@@ -190,10 +190,14 @@ namespace Component_A_ClassLibrary
                     //        throw;
                     //    }
                     //}
-                    foreach (var x in depRes)
-                    {
-                        x.DeptName = dept.Text;
-                    }
+
+
+
+
+                    //foreach (var x in depRes)
+                    //{
+                    //    x.DeptName = dept.Text;
+                    //}
 
 
                     db.SubmitChanges();
