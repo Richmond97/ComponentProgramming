@@ -36,6 +36,8 @@ namespace Component_A_ClassLibrary
 
                 if (MessageBox.Show("Delete Employee", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+
+                    // Delete department entity
                     try
                     {
                         var varQueryDelete = (from a in db.employees
@@ -49,12 +51,13 @@ namespace Component_A_ClassLibrary
                         db.SubmitChanges();
 
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"{e}");
+                        MessageBox.Show(ex.Message);
                         throw;
                     }
 
+                    // Delete employee entity and cascade delete roles, requests and taken
                     try
                     {
                         var varQueryDelete = (from a in db.employees
@@ -66,9 +69,9 @@ namespace Component_A_ClassLibrary
                         db.SubmitChanges();
 
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"{e}");
+                        MessageBox.Show(ex.Message);
                         throw;
                     }
                 }
