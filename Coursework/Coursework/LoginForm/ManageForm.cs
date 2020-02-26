@@ -142,7 +142,7 @@ namespace LoginForm
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            //editEmployee1.SearchEmployee(dataGridView1, txtSearch,rdName);
+            editEmployee1.SearchEmployee(dataGridView1, txtSearch,rdName);
         }
 
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
@@ -150,18 +150,19 @@ namespace LoginForm
             deleteEmployee1.DeleteStaff(dataGridView1);
             dataGridView1.CurrentRow.Selected = false;            
 
-            ClearFields(editPanel);
-            RefreshGrid();            
+            ClearFields(editPanel);            
+            BtnSearch_Click(sender, e);
+            RefreshGrid();
             SwitchButtons();
-            editPanel.Update();
         }              
 
         private void BtnEditEmploy_Click(object sender, EventArgs e)
         {
-            editEmployee1.EditDetails(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost, cbxEDept, cbxERole);
+            editEmployee1.EditDetails(dataGridView1, txtEFirst, txtELast, txtETele, txtEEmail, txtEPassword, txtEStreet, txtECity, txtECounty, txtEPost, cbxEDept, cbxERole);
             dataGridView1.CurrentRow.Selected = false;
 
             ClearFields(editPanel);
+            BtnSearch_Click(sender, e);
             RefreshGrid();
             SwitchButtons();
         }

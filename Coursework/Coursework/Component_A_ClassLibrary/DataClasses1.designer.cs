@@ -30,6 +30,9 @@ namespace Component_A_ClassLibrary
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void Insertconstraint(constraint instance);
+    partial void Updateconstraint(constraint instance);
+    partial void Deleteconstraint(constraint instance);
     partial void Insertrole(role instance);
     partial void Updaterole(role instance);
     partial void Deleterole(role instance);
@@ -48,9 +51,6 @@ namespace Component_A_ClassLibrary
     partial void Insertpeaktime(peaktime instance);
     partial void Updatepeaktime(peaktime instance);
     partial void Deletepeaktime(peaktime instance);
-    partial void Insertconstraint(constraint instance);
-    partial void Updateconstraint(constraint instance);
-    partial void Deleteconstraint(constraint instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -81,6 +81,14 @@ namespace Component_A_ClassLibrary
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<constraint> constraints
+		{
+			get
+			{
+				return this.GetTable<constraint>();
+			}
 		}
 		
 		public System.Data.Linq.Table<role> roles
@@ -130,12 +138,186 @@ namespace Component_A_ClassLibrary
 				return this.GetTable<peaktime>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.constraints")]
+	public partial class constraint : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<constraint> constraints
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ConstraintID;
+		
+		private int _MinimumWorkingStaff;
+		
+		private int _HolidayEntitlement;
+		
+		private System.DateTime _ExceptionStartDate;
+		
+		private System.DateTime _ExceptionEndDate;
+		
+		private System.DateTime _RelaxedMonth;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnConstraintIDChanging(long value);
+    partial void OnConstraintIDChanged();
+    partial void OnMinimumWorkingStaffChanging(int value);
+    partial void OnMinimumWorkingStaffChanged();
+    partial void OnHolidayEntitlementChanging(int value);
+    partial void OnHolidayEntitlementChanged();
+    partial void OnExceptionStartDateChanging(System.DateTime value);
+    partial void OnExceptionStartDateChanged();
+    partial void OnExceptionEndDateChanging(System.DateTime value);
+    partial void OnExceptionEndDateChanged();
+    partial void OnRelaxedMonthChanging(System.DateTime value);
+    partial void OnRelaxedMonthChanged();
+    #endregion
+		
+		public constraint()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConstraintID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long ConstraintID
 		{
 			get
 			{
-				return this.GetTable<constraint>();
+				return this._ConstraintID;
+			}
+			set
+			{
+				if ((this._ConstraintID != value))
+				{
+					this.OnConstraintIDChanging(value);
+					this.SendPropertyChanging();
+					this._ConstraintID = value;
+					this.SendPropertyChanged("ConstraintID");
+					this.OnConstraintIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinimumWorkingStaff", DbType="Int NOT NULL")]
+		public int MinimumWorkingStaff
+		{
+			get
+			{
+				return this._MinimumWorkingStaff;
+			}
+			set
+			{
+				if ((this._MinimumWorkingStaff != value))
+				{
+					this.OnMinimumWorkingStaffChanging(value);
+					this.SendPropertyChanging();
+					this._MinimumWorkingStaff = value;
+					this.SendPropertyChanged("MinimumWorkingStaff");
+					this.OnMinimumWorkingStaffChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HolidayEntitlement", DbType="Int NOT NULL")]
+		public int HolidayEntitlement
+		{
+			get
+			{
+				return this._HolidayEntitlement;
+			}
+			set
+			{
+				if ((this._HolidayEntitlement != value))
+				{
+					this.OnHolidayEntitlementChanging(value);
+					this.SendPropertyChanging();
+					this._HolidayEntitlement = value;
+					this.SendPropertyChanged("HolidayEntitlement");
+					this.OnHolidayEntitlementChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExceptionStartDate", DbType="Date NOT NULL")]
+		public System.DateTime ExceptionStartDate
+		{
+			get
+			{
+				return this._ExceptionStartDate;
+			}
+			set
+			{
+				if ((this._ExceptionStartDate != value))
+				{
+					this.OnExceptionStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExceptionStartDate = value;
+					this.SendPropertyChanged("ExceptionStartDate");
+					this.OnExceptionStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExceptionEndDate", DbType="Date NOT NULL")]
+		public System.DateTime ExceptionEndDate
+		{
+			get
+			{
+				return this._ExceptionEndDate;
+			}
+			set
+			{
+				if ((this._ExceptionEndDate != value))
+				{
+					this.OnExceptionEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExceptionEndDate = value;
+					this.SendPropertyChanged("ExceptionEndDate");
+					this.OnExceptionEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RelaxedMonth", DbType="Date NOT NULL")]
+		public System.DateTime RelaxedMonth
+		{
+			get
+			{
+				return this._RelaxedMonth;
+			}
+			set
+			{
+				if ((this._RelaxedMonth != value))
+				{
+					this.OnRelaxedMonthChanging(value);
+					this.SendPropertyChanging();
+					this._RelaxedMonth = value;
+					this.SendPropertyChanged("RelaxedMonth");
+					this.OnRelaxedMonthChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -267,7 +449,7 @@ namespace Component_A_ClassLibrary
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="department_role", Storage="_department", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="department_role", Storage="_department", ThisKey="DepartmentID", OtherKey="DepartmentID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public department department
 		{
 			get
@@ -301,7 +483,7 @@ namespace Component_A_ClassLibrary
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_role", Storage="_employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_role", Storage="_employee", ThisKey="EmployeeID", OtherKey="EmployeeID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public employee employee
 		{
 			get
@@ -1271,188 +1453,6 @@ namespace Component_A_ClassLibrary
 					this._EndDate = value;
 					this.SendPropertyChanged("EndDate");
 					this.OnEndDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.constraints")]
-	public partial class constraint : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _ConstraintID;
-		
-		private int _MinimumWorkingStaff;
-		
-		private int _HolidayEntitlement;
-		
-		private System.DateTime _ExceptionStartDate;
-		
-		private System.DateTime _ExceptionEndDate;
-		
-		private System.DateTime _RelaxedMonth;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnConstraintIDChanging(long value);
-    partial void OnConstraintIDChanged();
-    partial void OnMinimumWorkingStaffChanging(int value);
-    partial void OnMinimumWorkingStaffChanged();
-    partial void OnHolidayEntitlementChanging(int value);
-    partial void OnHolidayEntitlementChanged();
-    partial void OnExceptionStartDateChanging(System.DateTime value);
-    partial void OnExceptionStartDateChanged();
-    partial void OnExceptionEndDateChanging(System.DateTime value);
-    partial void OnExceptionEndDateChanged();
-    partial void OnRelaxedMonthChanging(System.DateTime value);
-    partial void OnRelaxedMonthChanged();
-    #endregion
-		
-		public constraint()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConstraintID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long ConstraintID
-		{
-			get
-			{
-				return this._ConstraintID;
-			}
-			set
-			{
-				if ((this._ConstraintID != value))
-				{
-					this.OnConstraintIDChanging(value);
-					this.SendPropertyChanging();
-					this._ConstraintID = value;
-					this.SendPropertyChanged("ConstraintID");
-					this.OnConstraintIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinimumWorkingStaff", DbType="Int NOT NULL")]
-		public int MinimumWorkingStaff
-		{
-			get
-			{
-				return this._MinimumWorkingStaff;
-			}
-			set
-			{
-				if ((this._MinimumWorkingStaff != value))
-				{
-					this.OnMinimumWorkingStaffChanging(value);
-					this.SendPropertyChanging();
-					this._MinimumWorkingStaff = value;
-					this.SendPropertyChanged("MinimumWorkingStaff");
-					this.OnMinimumWorkingStaffChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HolidayEntitlement", DbType="Int NOT NULL")]
-		public int HolidayEntitlement
-		{
-			get
-			{
-				return this._HolidayEntitlement;
-			}
-			set
-			{
-				if ((this._HolidayEntitlement != value))
-				{
-					this.OnHolidayEntitlementChanging(value);
-					this.SendPropertyChanging();
-					this._HolidayEntitlement = value;
-					this.SendPropertyChanged("HolidayEntitlement");
-					this.OnHolidayEntitlementChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExceptionStartDate", DbType="Date NOT NULL")]
-		public System.DateTime ExceptionStartDate
-		{
-			get
-			{
-				return this._ExceptionStartDate;
-			}
-			set
-			{
-				if ((this._ExceptionStartDate != value))
-				{
-					this.OnExceptionStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExceptionStartDate = value;
-					this.SendPropertyChanged("ExceptionStartDate");
-					this.OnExceptionStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExceptionEndDate", DbType="Date NOT NULL")]
-		public System.DateTime ExceptionEndDate
-		{
-			get
-			{
-				return this._ExceptionEndDate;
-			}
-			set
-			{
-				if ((this._ExceptionEndDate != value))
-				{
-					this.OnExceptionEndDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExceptionEndDate = value;
-					this.SendPropertyChanged("ExceptionEndDate");
-					this.OnExceptionEndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RelaxedMonth", DbType="Date NOT NULL")]
-		public System.DateTime RelaxedMonth
-		{
-			get
-			{
-				return this._RelaxedMonth;
-			}
-			set
-			{
-				if ((this._RelaxedMonth != value))
-				{
-					this.OnRelaxedMonthChanging(value);
-					this.SendPropertyChanging();
-					this._RelaxedMonth = value;
-					this.SendPropertyChanged("RelaxedMonth");
-					this.OnRelaxedMonthChanged();
 				}
 			}
 		}

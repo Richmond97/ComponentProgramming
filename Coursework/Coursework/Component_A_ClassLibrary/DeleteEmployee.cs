@@ -33,33 +33,49 @@ namespace Component_A_ClassLibrary
             if (table.SelectedRows.Count > 0)
             {
                 string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
-                
-                try
+
+                if (MessageBox.Show("Delete Employee", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    var varQueryDelete = (from a in db.employees
-                                          where a.EmployeeID == Convert.ToInt64(deletedID)
-                                          select a);
+                    try
+                    {
+                        var varQueryDelete = (from a in db.employees
+                                              where a.StaffID == Convert.ToInt64(deletedID)
+                                              join b in db.roles on a.EmployeeID equals b.EmployeeID
+                                              join c in db.departments on b.DepartmentID equals c.DepartmentID
+                                              select c);
 
-                    var company = db.employees.FirstOrDefault(c => c.EmployeeID == Convert.ToInt64(deletedID));
+                        db.departments.DeleteAllOnSubmit(varQueryDelete);
 
-                    db.employees.DeleteOnSubmit(company);
+                        db.SubmitChanges();
 
-                    db.SubmitChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($"{e}");
+                        throw;
+                    }
 
+                    try
+                    {
+                        var varQueryDelete = (from a in db.employees
+                                              where a.StaffID == Convert.ToInt64(deletedID)
+                                              select a);
+
+                        db.employees.DeleteAllOnSubmit(varQueryDelete);
+
+                        db.SubmitChanges();
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($"{e}");
+                        throw;
+                    }
                 }
-                catch (Exception e)
-                {
-                    MessageBox.Show($"{e}"); 
-                    throw;
-                }
-
 
             }
                                                                                
         }
-
-
-
 
     }
 }

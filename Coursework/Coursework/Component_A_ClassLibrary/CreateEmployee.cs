@@ -40,7 +40,7 @@ namespace Component_A_ClassLibrary
                 }
                 else
                 {
-                    // Create a new employlee object
+                    // Create a new employee object
                     employee addedEmployee = new employee
                     {
                         FirstName = firstNa.Text,
@@ -54,33 +54,24 @@ namespace Component_A_ClassLibrary
                     };
                     Console.WriteLine(" today date is " + DateTime.Today.Date);
 
-                    // Add the Dept and Role to the employee
+                    // Create a new Department object
 
-                    department addedDept = new department();
-                    addedDept.DeptName = typeDept.Text;
+                    department addedDept = new department
+                    {
+                        DeptName = typeDept.Text
+                    };
 
-
+                    // Create a new role object and add the employee and department
                     role addedRole = new role
                     {
                         RoleType = typeRole.Text,
                         employee = addedEmployee,
-                        department = addedDept                        
+                        department = addedDept
                     };
 
-                    //addedDept.roles.Add(addedRole);              
-
-
-
-                    //addedEmployee.departments.Add(addedDept);
-                    //addedEmployee.roles.Add(addedRole);
-
-                    //Add new Employee to database
-                    //db.employees.InsertOnSubmit(addedEmployee);
+                    //Save changes to Database
                     db.roles.InsertOnSubmit(addedRole);
-
-
-
-                    //Save changes to Database.
+                    
                     db.SubmitChanges();
 
                     MessageBox.Show("Employee Added To DB");
@@ -115,6 +106,7 @@ namespace Component_A_ClassLibrary
 
          public bool ValidEmail(string email)
         {
+            // Checks the email entered is legit
             try
             {
                 MailAddress correctEmail = new MailAddress(email);
