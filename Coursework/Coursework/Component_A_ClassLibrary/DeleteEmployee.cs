@@ -28,34 +28,41 @@ namespace Component_A_ClassLibrary
             InitializeComponent();
         }
 
-        public void DeleteStaff(DataGridView table)
+        public int deleteCount = 0;
+
+        //public void DeleteStaff(DataGridView table)
+        public void DeleteStaff(string targetID)
         {
-            if (table.SelectedRows.Count > 0)
-            {
-                string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
+           
+
+            //if (table.SelectedRows.Count > 0)
+            //{
+            //string deletedID = table[0, table.SelectedRows[0].Index].Value.ToString();
+            string deletedID = targetID;
 
                 if (MessageBox.Show("Delete Employee", "Please Confirm Your Action", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
+                    
                     // Delete department entity
-                    try
-                    {
-                        var varQueryDelete = (from a in db.employees
-                                              where a.StaffID == Convert.ToInt64(deletedID)
-                                              join b in db.roles on a.EmployeeID equals b.EmployeeID
-                                              join c in db.departments on b.DepartmentID equals c.DepartmentID
-                                              select c);
 
-                        db.departments.DeleteAllOnSubmit(varQueryDelete);
 
-                        db.SubmitChanges();
+                try
+                {
+                    var varQueryDelete = (from a in db.employees
+                                          where a.StaffID == Convert.ToInt64(deletedID)
+                                          join b in db.roles on a.EmployeeID equals b.EmployeeID
+                                          join c in db.departments on b.DepartmentID equals c.DepartmentID
+                                          select c);
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        throw;
-                    }
+                    db.departments.DeleteAllOnSubmit(varQueryDelete);
+
+                    db.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
 
                     // Delete employee entity and cascade delete roles, requests and taken
                     try
@@ -63,10 +70,12 @@ namespace Component_A_ClassLibrary
                         var varQueryDelete = (from a in db.employees
                                               where a.StaffID == Convert.ToInt64(deletedID)
                                               select a);
-
+                        
                         db.employees.DeleteAllOnSubmit(varQueryDelete);
 
                         db.SubmitChanges();
+
+                        deleteCount++;
 
                     }
                     catch (Exception ex)
@@ -76,7 +85,7 @@ namespace Component_A_ClassLibrary
                     }
                 }
 
-            }
+            //}
                                                                                
         }
 

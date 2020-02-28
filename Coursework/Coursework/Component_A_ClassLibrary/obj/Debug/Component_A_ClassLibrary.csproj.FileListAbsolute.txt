@@ -36,3 +36,10 @@ C:\Users\ry9102q\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursew
 C:\Users\ry9102q\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.dll
 C:\Users\ry9102q\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.pdb
 C:\Users\ea3996r\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csprojAssemblyReference.cache
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll.config
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.dll
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\bin\Debug\Component_A_ClassLibrary.pdb
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csprojAssemblyReference.cache
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.dll
+C:\Users\ry9102q.STUDENT\Source\Repos\Richmond97\ComponentProgramming\Coursework\Coursework\Component_A_ClassLibrary\obj\Debug\Component_A_ClassLibrary.pdb

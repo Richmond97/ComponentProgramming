@@ -14,6 +14,8 @@ namespace Component_A_ClassLibrary
     {
         private int staffID = 0;
         private string password = "";
+        private long someQuery = 0;
+        private string employeeLevel = "";
 
         // Connection to the DataBase and access to entity classes
         private readonly DataClasses1DataContext db = new DataClasses1DataContext();      
@@ -32,10 +34,12 @@ namespace Component_A_ClassLibrary
 
         public int StaffID { get => staffID; set => staffID = value; }
         public string Password { get => password; set => password = value; }
+        public long SomeQuery { get => someQuery; set => someQuery = value; }
+        public string EmployeeLevel { get => employeeLevel; set => employeeLevel = value; }
 
         public bool Verification(string employeeLevel)
         {
-            long someQuery;
+            //long someQuery;
             try
             {
                 // Query to find matching staffid and password in DB
@@ -44,13 +48,13 @@ namespace Component_A_ClassLibrary
                                select a.EmployeeID;                              
 
                 var quer = verQuery.ToList();
-                someQuery = quer.ElementAtOrDefault(0);
+                SomeQuery = quer.ElementAtOrDefault(0);
 
                 if (verQuery.Any())
                 {
                     // If user entered details correctly call auth method
                     Console.WriteLine("User Exists in DB");
-                    return Authentication(someQuery, employeeLevel);              
+                    return Authentication(SomeQuery, employeeLevel);              
                 }
                 else
                 {
@@ -86,7 +90,7 @@ namespace Component_A_ClassLibrary
             try
             {
                 var joinQuery = from r in db.roles
-                                where r.employee.EmployeeID == employID
+                                where r.EmployeeID == employID
                                 select r;
 
                 var singleQuery = joinQuery.Single();

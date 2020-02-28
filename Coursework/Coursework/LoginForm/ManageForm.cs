@@ -60,6 +60,7 @@ namespace LoginForm
 
             // Only allow delete/edit when an emply has been selected
             SwitchButtons();
+            SetEditableFields(editPanel);
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
@@ -147,13 +148,23 @@ namespace LoginForm
 
         private void BtnDeleteEmploy_Click(object sender, EventArgs e)
         {
-            deleteEmployee1.DeleteStaff(dataGridView1);
-            dataGridView1.CurrentRow.Selected = false;            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string targetID = dataGridView1[0, dataGridView1.SelectedRows[0].Index].Value.ToString();
+                //deleteEmployee1.DeleteStaff(dataGridView1);
+                deleteEmployee1.DeleteStaff(targetID);
+                dataGridView1.CurrentRow.Selected = false;
 
-            ClearFields(editPanel);            
-            BtnSearch_Click(sender, e);
-            RefreshGrid();
-            SwitchButtons();
+
+                ClearFields(editPanel);            
+                BtnSearch_Click(sender, e);
+                RefreshGrid();
+                SwitchButtons();
+                SetEditableFields(editPanel);
+
+            }                      
+
+            
         }              
 
         private void BtnEditEmploy_Click(object sender, EventArgs e)
@@ -165,6 +176,7 @@ namespace LoginForm
             BtnSearch_Click(sender, e);
             RefreshGrid();
             SwitchButtons();
+            SetEditableFields(editPanel);
         }
                 
 
@@ -319,5 +331,24 @@ namespace LoginForm
             }
             return correctFields;
         }
+
+        private void SetEditableFields(Panel editPanel)
+        {
+            foreach (Control x in editPanel.Controls)
+            {
+                if (x is TextBox && x.Name != "txtEPassword")
+                {
+                    if (x.Enabled)
+                    {
+                        x.Enabled = false;
+                    }
+                    else
+                    {
+                        x.Enabled = true;
+                    }                    
+                }
+            }
+
+        } 
     }
 }
