@@ -20,17 +20,24 @@ namespace LoginForm
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            // Sets the ID and Password to the component
-            loginComponent1.StaffID = Int32.Parse(staffID.Text);
-            loginComponent1.Password = password.Text;            
-
-            // Verification based on the admin desktop application
-            if (loginComponent1.Verification("Admin"))
+            if (staffID.Text != string.Empty)
             {
-                Hide();
-                ManageForm manage = ManageForm.Instance;                
-                manage.Show();
-            }        
+                // Sets the ID and Password to the component
+                loginComponent1.StaffID = Int32.Parse(staffID.Text);
+                loginComponent1.Password = password.Text;
+
+                // Verification based on the admin desktop application
+                if (loginComponent1.Verification("Admin"))
+                {
+                    Hide();
+                    ManageForm manage = ManageForm.Instance;
+                    manage.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter Staff ID");
+            }
         }
 
         private void Lbl_Close(object sender, EventArgs e)

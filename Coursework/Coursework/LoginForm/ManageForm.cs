@@ -109,7 +109,6 @@ namespace LoginForm
                 this.Hide();
                 LoginForm login = new LoginForm();
                 login.Show();
-
             }
         }
 
@@ -195,6 +194,7 @@ namespace LoginForm
                 }
                 else if (dataGridView1.CurrentCell.Value != null)
                 {
+                    SetEditableFields(editPanel);
                     PopulateTxtBox(dataGridView1, e, txtEFirst, txtELast, txtETele, txtEEmail, txtEStreet, txtECity, txtECounty, txtEPost,cbxEDept, cbxERole, txtEPassword, txtEDateJoined);
                 }
             }
